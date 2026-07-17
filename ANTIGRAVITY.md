@@ -43,5 +43,21 @@ Do not look for older directories, propose deprecated port mappings, change hist
 
 ---
 
+## ⚡ 5. Token Drain Mitigation & File Architecture Rules
+To prevent massive context bloat, slow processing, and token exhaustion, all code generation and architectural modifications must strictly obey these efficiency parameters:
+
+### Monolithic File Prohibition
+*   **Maximum File Length:** No single frontend file or backend route controller should exceed **250 lines of code**. If a file begins creeping past this threshold, it must be broken down immediately.
+*   **Atomic Component Architecture:** UI elements inside `v8_frontend` must be isolated into modular, single-responsibility components (e.g., separating input cards, status bars, and logic hooks into individual files). Never build a single giant dashboard file.
+
+### Context Preservation Strategy
+*   **Targeted Snippets Only:** When proposing code fixes or optimizations, never reprint an entire file to change five lines. Only output the exact modified functions, classes, or blocks, detailing where they sit in relation to the file's current layout.
+*   **Dependency Sanity:** Do not inject massive external npm or pip libraries to handle basic utility functions. Rely on lightweight, core-native language implementations to keep `package.json` and the server architecture clean.
+
+### Zero-Drift Rule
+*   Do not suggest restructuring active database contracts, file paths, or core global routing modules unless explicitly instructed. Code must adapt to the existing lean template rather than inflating it with boilerplate abstractions.
+
+---
+
 ## 🎯 Current Engineering Objective
 Maintain structural consistency within the active workspace branch. When harvesting layout fragments, design paradigms, or components from historical variations, translate the source code to fit this active structural template, port assignment, and path mapping perfectly without altering the host environment.
