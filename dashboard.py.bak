@@ -15,8 +15,8 @@ has_logo = os.path.exists(logo_path)
 
 # Page Setup with Brand Assets
 st.set_page_config(
-    page_title="CascadiaEM Master Dev Suite",
-    layout="wide",
+    page_title="CascadiaEM Master Dev Suite", 
+    layout="wide", 
     page_icon=logo_path if has_logo else "🛡️"
 )
 
@@ -67,18 +67,7 @@ with st.sidebar:
     st.header("Suite Playbook & Help")
     st.markdown("Use this reference manual to guide development sessions and clear environment deadlocks.")
     
-    with st.expander("🚨 CRITICAL: AI Session Troubleshooting Log", expanded=True):
-        st.markdown("""
-        **Issue:** React frontend rendered as completely unstyled raw HTML text with structural layout and CSS processing totally broken.
-        
-        **Root Cause:** An automated AI script mutated the `vite.config.ts` network configurations—changing the server preview port from `8080` to `8081`. The system was serving fallback cache assets while completely bypassing the live Tailwind CSS compiler stream.
-        
-        **Solution:** Reverted the configuration key back to port `8080` and systematically deleted local untracked framework build artifacts (`.vite`, `node_modules`).
-        
-        **Avoidance Mandate for Incoming AIs:** Do NOT alter designated application port configurations, paths, or baseline dependencies unless explicitly directed by the user. Keep architectures modular.
-        """)
-
-    with st.expander("🚀 Standard Active Dev Workflow"):
+    with st.expander("🚀 Standard Active Dev Workflow", expanded=True):
         st.markdown("""
         **Goal:** Build and modify the active v8 system.
         1. Ensure variant loader is set to **Active Workspace**.
@@ -168,54 +157,19 @@ else:
     st.warning(f"⚠️ **Currently Controlling Archived Reference Layer:** {st.session_state.target_name}")
 
 # ==========================================
-# 📊 DYNAMIC NETWORK STATUS CONTAINER & METRIC BAR
+# 📊 INDUSTRY METRIC / KPI STATUS BAR
 # ==========================================
-if backend_live and frontend_live:
-    status_border_color = "#10b981"  # Connected (Green)
-    status_bg_color = "rgba(16, 185, 129, 0.04)"
-    status_label_text = "CONNECTED"
-elif backend_live or frontend_live:
-    status_border_color = "#f59e0b"  # Trying / Partial (Yellow)
-    status_bg_color = "rgba(245, 158, 11, 0.04)"
-    status_label_text = "TRYING"
-else:
-    status_border_color = "#ef4444"  # Disconnected (Red)
-    status_bg_color = "rgba(239, 68, 68, 0.04)"
-    status_label_text = "DISCONNECTED"
-
-total_commits, last_sync = get_git_metrics(st.session_state.target_dir)
-days_left = get_token_days_left()
-token_delta = "-1 Day" if days_left < 90 else "Fresh"
-token_delta_color = "#ef4444" if days_left < 15 else "#94a3b8"
-
-st.markdown(f"""
-<div style="border: 2px solid {status_border_color}; background-color: {status_bg_color}; padding: 16px; border-radius: 8px; margin-bottom: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-    <div style="font-size: 11px; font-weight: 800; color: {status_border_color}; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
-        <span style="display: inline-block; width: 8px; height: 8px; background-color: {status_border_color}; border-radius: 50%;"></span>
-        System Status Matrix: {status_label_text}
-    </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-        <div style="flex: 1; min-width: 220px; background: #131B2F; padding: 14px; border-radius: 6px; border: 1px solid #1E293B;">
-            <div style="font-size: 11px; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Backend Engine (Port 5001)</div>
-            <div style="font-size: 24px; font-weight: bold; color: {'#10b981' if backend_live else '#ef4444'};">{'ONLINE' if backend_live else 'OFFLINE'}</div>
-        </div>
-        <div style="flex: 1; min-width: 220px; background: #131B2F; padding: 14px; border-radius: 6px; border: 1px solid #1E293B;">
-            <div style="font-size: 11px; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Frontend Server (Port 8080)</div>
-            <div style="font-size: 24px; font-weight: bold; color: {'#10b981' if frontend_live else '#ef4444'};">{'ONLINE' if frontend_live else 'OFFLINE'}</div>
-        </div>
-        <div style="flex: 1; min-width: 220px; background: #131B2F; padding: 14px; border-radius: 6px; border: 1px solid #1E293B;">
-            <div style="font-size: 11px; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Total Secured Commits</div>
-            <div style="font-size: 24px; font-weight: bold; color: #f8fafc;">{total_commits}</div>
-            <div style="font-size: 11px; color: #64748b; font-family: monospace; margin-top: 4px;">Mod: {last_sync}</div>
-        </div>
-        <div style="flex: 1; min-width: 220px; background: #131B2F; padding: 14px; border-radius: 6px; border: 1px solid #1E293B;">
-            <div style="font-size: 11px; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">GitHub Token Lifespan</div>
-            <div style="font-size: 24px; font-weight: bold; color: #f8fafc;">{days_left} Days Left</div>
-            <div style="font-size: 11px; color: {token_delta_color}; margin-top: 4px; font-weight: 600;">{token_delta}</div>
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+m_back, m_front, m_git, m_token = st.columns(4)
+with m_back:
+    st.metric("Backend Engine (Port 5001)", "ONLINE" if backend_live else "OFFLINE", delta=None, delta_color="normal")
+with m_front:
+    st.metric("Frontend Server (Port 8080)", "ONLINE" if frontend_live else "OFFLINE", delta=None, delta_color="normal")
+with m_git:
+    total_commits, last_sync = get_git_metrics(st.session_state.target_dir)
+    st.metric("Total Secured Commits", total_commits, help=f"Last saved modification: {last_sync}")
+with m_token:
+    days_left = get_token_days_left()
+    st.metric("GitHub Token Lifespan", f"{days_left} Days Left", delta="-1 Day" if days_left < 90 else "Fresh", delta_color="inverse" if days_left < 15 else "normal")
 
 st.markdown("---")
 
@@ -277,7 +231,7 @@ if os.path.exists(history_dir):
     col_select, col_actions = st.columns([2, 1])
     with col_select:
         selected_backup = st.selectbox(
-            "Choose a Historical Variant to Load:",
+            "Choose a Historical Variant to Load:", 
             ["Active Workspace (Main Build)"] + backups,
             help="Selecting a variant targets file pointers to view and run old versions of the app."
         )
@@ -361,25 +315,3 @@ with col_arch_btn:
                         st.error("Backup tracking execution module stalled.")
                 except Exception as e:
                     st.error(f"Failed to execute background automation module: {e}")
-
-st.markdown("---")
-
-# ==========================================
-# 📓 ARCHITECTURE POST-MORTEM & AI GUARDRAILS
-# ==========================================
-st.header("📓 System Architecture Ledger")
-with st.expander("📝 Engineering Incident Report & Strategic Port Map Prevention", expanded=False):
-    st.markdown("""
-    ### 1. The Incident: Frontend Style Delivery Drop
-    * **Symptom:** The user interface loaded successfully on local ports but compiled without layout sheets. Structural styling elements were fully stripped, rendering raw, un-sequenced text with unconstrained images blowing past the viewport limits.
-    * **Root Cause:** An over-engineering AI agent modified layout behaviors and mutated core definitions inside `v8_frontend/vite.config.ts`, altering the active dev tracking port from `8080` to `8081`. The active web application layer was displaying stale runtime artifacts rather than processing through the active compiler framework.
-
-    ### 2. Immediate Remedies Implemented
-    * **Port Correction:** Forced the compiler profile target mapping back to port `8080`.
-    * **Cache Clearing:** Purged untracked environment components (`.vite` processing directories, broken dependency lock links, and redundant `node_modules` folders) to ensure clean re-compilation.
-
-    ### 3. Rules for Future AI Handoffs (How to Avoid This)
-    1. **Do Not Touch Infrastructure:** Under no conditions should an incoming AI modify network parameters, active base folders, script execution keys, or port ranges (`8080` for interface compilation, `5001` for backend engines) unless a change is directly requested.
-    2. **Do Not Fragment Styling Layouts:** Never break baseline CSS dependencies or split functional production assets to create monolithic layouts. 
-    3. **Trust the Port Validation:** If style processing drops out, verify that the browser URL exactly references the compiling development port configuration.
-    """)
