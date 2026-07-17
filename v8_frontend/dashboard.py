@@ -10,7 +10,7 @@ active_dir = os.path.join(base_dir, "CascadiaEM_v8_Active")
 history_dir = os.path.join(base_dir, "HISTORICAL_BUILDS")
 token_meta_file = os.path.join(active_dir, ".token_meta")
 
-# Automatic path mapping to your pre-existing repository logo asset
+# Automatic path mapping to your repository logo asset
 logo_path = os.path.join(active_dir, "v8_frontend", "public", "assets", "logo", "cem_logo.png")
 has_logo = os.path.exists(logo_path)
 
@@ -255,7 +255,7 @@ if os.path.exists(history_dir):
 st.markdown("---")
 
 # ==========================================
-# 🐙 GIT SNAPSHOT ENGINE
+# 🐙 GIT SNAPSHOT ENGINE (WITH ERROR CAPTURE)
 # ==========================================
 st.header("🐙 Git Version Control Engine")
 try:
@@ -264,7 +264,7 @@ try:
     
     col_input, col_commit_btn, col_push_btn = st.columns([2, 1, 1])
     with col_input:
-        commit_msg = st.text_input("Describe modifications for this version snapshot:", placeholder="e.g., Integrated brand assets and layout alignment configurations")
+        commit_msg = st.text_input("Describe modifications for this version snapshot:", placeholder="e.g., Uploaded high-resolution official logo asset", key="git_commit_input")
     with col_commit_btn:
         st.write("<div style='padding-top:28px;'></div>", unsafe_allow_html=True)
         if st.button("🔒 Commit Snapshot", use_container_width=True):
@@ -272,9 +272,12 @@ try:
                 st.warning("Please supply a descriptive version entry note.")
             else:
                 subprocess.run(["git", "add", "."], cwd=active_dir)
-                subprocess.run(["git", "commit", "-m", commit_msg], cwd=active_dir)
-                st.success("Snapshot secured locally.")
-                st.rerun()
+                res = subprocess.run(["git", "commit", "-m", commit_msg], cwd=active_dir, capture_output=True, text=True)
+                if res.returncode == 0:
+                    st.success("Snapshot secured locally.")
+                    st.rerun()
+                else:
+                    st.error(f"Commit Failed: {res.stderr if res.stderr else res.stdout}")
     with col_push_btn:
         st.write("<div style='padding-top:28px;'></div>", unsafe_allow_html=True)
         if st.button("📤 Push to Cloud Repository", use_container_width=True):
@@ -283,7 +286,7 @@ try:
                 if push_res.returncode == 0:
                     st.success("Synchronized with cloud repo.")
                 else:
-                    st.error("Sync failed.")
+                    st.error(f"Sync failed: {push_res.stderr}")
 except Exception as e:
     st.error(f"Failed to communicate with local git module framework: {e}")
 
