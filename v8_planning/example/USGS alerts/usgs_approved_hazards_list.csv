@@ -1,0 +1,13 @@
+Alert_Type,Severity_Level,Priority,Criteria,Hex_Code,Action_Required
+ShakeAlert Warning,Extreme,1,Estimated Magnitude >= 5.0 and Expected MMI >= IV (Light shaking or stronger),FF0000,"Drop, Cover, and Hold On / Automatic mitigation"
+ShakeAlert Advisory,Moderate,2,Estimated Magnitude >= 4.0 to < 5.0 and Expected MMI >= III,FFA500,Be alert / Prepare for mild shaking
+PAGER Red Alert,Critical,3,"High fatalities and extensive damage likely (Estimated losses > $1B or 1,000+ fatalities)",D32F2F,International/National response required
+PAGER Orange Alert,High,4,Significant casualties and damage likely (Estimated losses $100M-$1B or 100-999 fatalities),F57C00,Regional/National response required
+PAGER Yellow Alert,Medium,5,Localized casualties and damage likely (Estimated losses $1M-$100M or 1-99 fatalities),FBC02D,Local response required
+PAGER Green Alert,Low,6,Low likelihood of casualties and damage (Estimated losses < $1M and 0 fatalities),388E3C,No immediate response needed
+Volcano Warning,Critical,7,"Hazardous eruption imminent, underway, or suspected",B71C1C,Immediate evacuation / Airspace restriction
+Volcano Watch,High,8,Volcano exhibiting heightened/escalating unrest or minor eruption underway,E65100,Monitor closely / Prepare contingency plans
+Volcano Advisory,Medium,9,Volcano exhibiting signs of elevated unrest above known background activity,F57F17,Routine tracking / Public awareness
+Volcano Normal,Low,10,"Volcano is in typical background, non-eruptive state",1B5E20,No action
+Did You Feel It? (DYFI) Event,Informational,11,Automatic crowdsourced shaking report generated for a significant felt event,0288D1,Submit citizen report
+Aftershock Forecast,Informational,12,Statistical probability assessment for sequence duration and magnitude distribution,7B1FA2,Situational preparedness

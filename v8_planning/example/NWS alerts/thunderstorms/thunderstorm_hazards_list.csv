@@ -1,0 +1,8 @@
+Alert_Type,Category,Priority,Criteria,Hex_Code,Source
+Severe Thunderstorm Warning,Atmospheric / Life Safety,1,"A thunderstorm is producing or capable of producing hail 1 inch (quarter-sized) or larger, and/or wind gusts of 58 mph (50 knots) or stronger. Immediate shelter is required.",FFA500,NWS
+Severe Thunderstorm Watch,Preparedness,2,Conditions are favorable for the development of severe thunderstorms in and close to the watch area. Monitor local conditions closely.,DB7093,NWS
+Severe Weather Statement,Information Update,3,"Follow-up bulletin issued by local NWS offices providing real-time tracking, specific damage reports, or localized impact adjustments for active warnings.",00FFFF,NWS
+Significant Weather Advisory,Situational Awareness,4,A thunderstorm is producing strong winds (40-57 mph) and/or small hail (less than 1 inch). Conditions are sub-severe but pose minor localized risks.,FFE4B5,NWS
+Special Weather Statement,Situational Awareness,5,"Short-fuse atmospheric notice highlighting localized, short-duration hazards like frequent lightning, heavy downpours, or gusty winds that do not meet warning criteria.",FFE4B5,NWS
+Destructive Severe Thunderstorm Tag,Enhanced Severity Threat,6,An active warning flag denoting highest-tier threats: baseball-sized hail (2.75+ inches) and/or hurricane-force wind gusts (80+ mph). Automatically triggers Wireless Emergency Alerts (WEA).,B71C1C,NWS
+Considerable Severe Thunderstorm Tag,Enhanced Severity Threat,7,An active warning flag denoting mid-tier severe threats: golf-ball-sized hail (1.75+ inches) and/or wind gusts of 70-79 mph.,E65100,NWS

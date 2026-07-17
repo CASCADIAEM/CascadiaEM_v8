@@ -1,0 +1,13 @@
+Alert_Type,Category,Priority,Criteria,Hex_Code,Source
+Volcano Warning,Volcanic Hazard Level,1,"Hazardous eruption is imminent, underway, or suspected, featuring significant ground/air impacts (e.g., major ashfall, pyroclastic flows, lava flows).",B71C1C,USGS / Volcano Hazards Program
+Volcano Watch,Volcanic Hazard Level,2,"Volcano is exhibiting heightened or escalating unrest with increased potential for eruption, OR a minor eruption is underway posing limited hazards.",E65100,USGS / Volcano Hazards Program
+Volcano Advisory,Volcanic Hazard Level,3,"Volcano is exhibiting signs of elevated unrest above known background level, or an eruption has decreased significantly but remains monitored.",F57F17,USGS / Volcano Hazards Program
+Volcano Normal,Volcanic Hazard Level,4,"Volcano is in its typical background, non-eruptive state. If changing from a higher level, activity has returned to background.",1B5E20,USGS / Volcano Hazards Program
+Aviation Color Code: Red,Aviation Hazard,5,"Eruption is imminent or underway with significant emission of volcanic ash into the atmosphere, posing a severe threat to aircraft.",FF0000,USGS / ICAO
+Aviation Color Code: Orange,Aviation Hazard,6,"Eruption is underway with no or minor ash emission, OR volcano is exhibiting heightened unrest with increased likelihood of eruption.",FFA500,USGS / ICAO
+Aviation Color Code: Yellow,Aviation Hazard,7,"Volcano is exhibiting signs of elevated unrest above known background levels, or ash emissions have deceased significantly.",FFFF00,USGS / ICAO
+Aviation Color Code: Green,Aviation Hazard,8,"Volcano is in a normal, non-eruptive state, or activity has returned to background levels following an eruption.",008000,USGS / ICAO
+Ashfall Warning,Atmospheric Hazard,9,"Significant accumulation of airborne volcanic ash (>= 1/4 inch) is expected or occurring, threatening life, visibility, and infrastructure.",A9A9A9,NWS
+Ashfall Advisory,Atmospheric Hazard,10,"Minor volcanic ash accumulation (< 1/4 inch) or airborne ash suspensions are expected, causing limited visibility and minor respiratory hazards.",696969,NWS
+Lahar / Mudflow Warning,Debris Flow Threat,11,Immediate hazard from volcanic mudflows or debris avalanches triggered by rapid snowmelt or heavy rainfall on volcanic deposits.,8B4513,USGS / NWS
+Pyroclastic Flow Notification,Immediate Life Safety,12,"High-density mixtures of hot lava blocks, pumice, ash, and volcanic gas moving at high speeds down volcanic slopes.",D32F2F,USGS / Civil Defense

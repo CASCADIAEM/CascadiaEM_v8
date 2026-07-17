@@ -1,0 +1,5 @@
+Alert_Type,Category,Priority,Criteria,Hex_Code,Source
+Excessive Heat Warning,Atmospheric / Life Safety,1,"Heat index values are expected to reach or exceed 105°F (or higher depending on regional climatological thresholds) for at least 2 days, and nighttime lows do not drop below 75°F. Poses a severe threat to life.",C71585,NWS
+Excessive Heat Watch,Preparedness,2,Conditions are favorable for an excessive heat event to meet or exceed warning criteria within the next 24 to 72 hours. Permits advance planning.,E65100,NWS
+Heat Advisory,Situational Awareness,3,Heat index values are expected to reach 100°F to 104°F for at least 2 hours. Dehydration and heat exhaustion are likely with prolonged exposure.,FF7F50,NWS
+Extreme Heat Mitigation Order,Public Health / Municipal,4,"Local governance declarations triggering the activation of community cooling centers, emergency energy grid protocols, and mandatory structural checks for vulnerable demographics.",B71C1C,Local Public Health / Mayor

@@ -1,0 +1,8 @@
+Field ID (Technical),Display Label (UI),Input Component Type,Data Type,Validation / Requirements,API Payload Key
+alert_template_id,ALERT TEMPLATE,Dropdown Selector,String,Choices: Presets (e.g. Evac) or ad-hoc,template_id
+transmission_channels,TRANSMISSION CHANNEL,Multi-select Toggle,Array of Strings,SMS / EMAIL / VOICE (Must select one),channels
+dispatch_mode,DISPATCH MODE,Segmented Toggle Button,String (Enum),IMMEDIATE or SCHEDULED,dispatch_mode
+scheduled_time,TRIGGER DATE & TIME,Datetime Picker,Datetime / ISO,Required only if Dispatch Mode = SCHEDULED,scheduled_time
+email_subject,EMAIL SUBJECT,Text Input,String,Required only if channels includes EMAIL,subject
+message_body,MESSAGE BODY,Textarea,String,Required,alert_message
+security_pin,OPERATOR SECURITY PIN,Password Input Field,String,Prompted only on isAdHoc = true (PIN: EOC-2026),operator_pin

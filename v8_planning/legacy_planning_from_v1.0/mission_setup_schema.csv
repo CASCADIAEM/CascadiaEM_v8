@@ -1,0 +1,7 @@
+Field ID (Technical),Display Label (UI),Input Component Type,Data Type,Validation / Requirements,API Payload Key
+incident_title,INCIDENT TITLE,Text Input,String,"Required, Max 80 Characters",title
+incident_type,INCIDENT TYPE,Dropdown Selector,String (Enum),Wildfire / Flood / Hazmat / Earthquake,type
+incident_severity,OPERATIONAL SEVERITY,Dropdown Selector,String (Enum),low / medium / high,severity
+verified_address,VERIFIED EMERGENCY ADDRESS,Google Autocomplete / Input,String,Required (Your address block),address
+incident_notes,OPERATIONAL BRIEFING NOTES,Textarea,String,Optional,notes
+origin_tenant,ORIGINATING TENANT AGENCY,Hidden Field,String,Defaults to CASCADIA_EM_COMMS,origin_tenant

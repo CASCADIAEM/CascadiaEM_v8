@@ -1,0 +1,12 @@
+Field ID (Technical),Display Label (UI),Input Component Type,Data Type,Validation / Requirements,API Payload Key
+incident_title,INCIDENT TITLE,Text Input,String,"Required, Max 80 Characters",title
+incident_category,MISSION CATEGORY,Dropdown Selector,String (Enum),Event Support / Exercise | Drill / Natural Hazards / Man Made Hazards / Test Mission,category
+natural_hazards_type,NATURAL HAZARDS TYPE,Dropdown Selector,String (Enum),Wildfire / Flood / Earthquake / Tsunami / Volcano / Wind Storm / Winter Weather,type
+man_made_hazards_type,MAN MADE HAZARDS TYPE,Dropdown Selector,String (Enum),Hazmat / Civil Unrest / Enemy Attack,type
+exercise_drill_type,EXERCISE / DRILL TYPE,Dropdown Selector,String (Enum),ERT Exercise / CERT Exercise / EOC Activation / EOC COOP Drill,type
+event_support_type,EVENT SUPPORT TYPE,Dropdown Selector,String (Enum),Tribal Event / Parade / Fair | Festival / 5K | 10K Run,type
+test_mission_type,TEST MISSION TYPE,Dropdown Selector,String (Enum),ERT Activation / CERT Activation / EOC Activation / COOP Exercise,type
+incident_severity,OPERATIONAL SEVERITY,Dropdown Selector,String (Enum),low / medium / high,severity
+verified_address,VERIFIED EMERGENCY ADDRESS,Google Autocomplete / Input,String,Required (Your address block),address
+incident_notes,OPERATIONAL BRIEFING NOTES,Textarea,String,Optional,notes
+origin_tenant,ORIGINATING TENANT AGENCY,Hidden Field,String,Defaults to CASCADIA_EM_COMMS,origin_tenant

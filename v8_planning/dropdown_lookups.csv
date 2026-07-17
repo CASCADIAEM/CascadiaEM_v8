@@ -1,0 +1,167 @@
+Dropdown ID,Option Value,Display Text
+natural_hazards_type,wildfire,Wildfire
+natural_hazards_type,flood,Flood
+natural_hazards_type,earthquake,Earthquake
+natural_hazards_type,tsunami,Tsunami
+natural_hazards_type,volcano,Volcano
+natural_hazards_type,wind_storm,Wind Storm
+natural_hazards_type,winter_weather,Winter Weather
+man_made_hazards_type,hazmat,Hazmat
+man_made_hazards_type,civil_unrest,Civil Unrest
+man_made_hazards_type,enemy_attack,Enemy Attack
+exercise_drill_type,ert_exercise,ERT Exercise
+exercise_drill_type,cert_exercise,CERT Exercise
+exercise_drill_type,eoc_activation,EOC Activation
+exercise_drill_type,eoc_coop_drill,EOC COOP Drill
+event_support_type,tribal_event,Tribal Event
+event_support_type,parade,Parade
+event_support_type,fair_festival,Fair | Festival
+event_support_type,run_5k_10k,5K | 10K Run
+test_mission_type,ert_activation,ERT Activation
+test_mission_type,cert_activation,CERT Activation
+test_mission_type,eoc_activation,EOC Activation
+test_mission_type,coop_exercise,COOP Exercise
+incident_category,event_support,Event Support
+incident_category,exercise_drill,Exercise | Drill
+incident_category,natural_hazards,Natural Hazards
+incident_category,man_made_hazards,Man Made Hazards
+incident_category,test_mission,Test Mission
+incident_severity,low,🟢 Green (Routine / Monitoring)
+incident_severity,medium,🟡 Amber (Elevated Response)
+incident_severity,high,🔴 Red (Critical Emergency)
+ics_period,P1,Operational Period P1
+ics_period,P2,Operational Period P2
+ics_period,P3,Operational Period P3
+ics_period,P4,Operational Period P4
+ics_position,Commander,Incident Commander
+ics_position,Logistics,Logistics Chief
+ics_position,Planning,Planning Section Chief
+ics_position,Ops,Operations Section Chief
+ics_position,Safety,Safety Officer
+unit_status,active,🟢 Active Duty / Active
+unit_status,standby,🟡 Standby Ready / Standby
+unit_status,released,⚪ Released / Stage
+comms_channel,Tactical-1,VHF Tactical Channel 1
+comms_channel,Tactical-2,VHF Tactical Channel 2
+comms_channel,Air-Ground,VHF Air-to-Ground Net
+comms_channel,Satellite,Satellite-Net Comms Hook
+comms_channel,Pager-Primary,Pager-Primary Broadcast
+mutual_aid_status,active,Primary Coordination Active
+mutual_aid_status,standby,Standby Commitment
+mutual_aid_status,unavailable,Unavailable
+resource_category,Equipment,Equipment (NIMS Class)
+resource_category,Vehicles,Vehicles / Engines (NIMS Class)
+resource_category,Consumables,Consumables / Supplies
+resource_category,Communications,Communications Gear
+storage_location,EOC-Annex,EOC Logistics Annex
+storage_location,Staging-Alpha,Staging Depot Alpha
+storage_location,West-Shelter,West Shelter Base
+item_status,operational,Operational / Ready
+item_status,service,Needs Service
+item_status,depleted,Depleted
+barometric_trend,rising,Rising Steady
+barometric_trend,falling,Falling Rapidly
+barometric_trend,stable,Stable / Flat
+hazard_index,green,Green Normal
+hazard_index,yellow,Yellow Elevating Hazard
+hazard_index,red,Red Immediate Threat
+noaa_active_warning,none,None (Clear / Advisory)
+noaa_active_warning,ashfall_advisory,Ashfall Advisory
+noaa_active_warning,ashfall_warning,Ashfall Warning
+noaa_active_warning,avalanche_advisory,Avalanche Advisory
+noaa_active_warning,avalanche_warning,Avalanche Warning
+noaa_active_warning,avalanche_watch,Avalanche Watch
+noaa_active_warning,beach_hazards_statement,Beach Hazards Statement
+noaa_active_warning,blizzard_warning,Blizzard Warning
+noaa_active_warning,blowing_dust_advisory,Blowing Dust Advisory
+noaa_active_warning,blowing_dust_warning,Blowing Dust Warning
+noaa_active_warning,brisk_wind_advisory,Brisk Wind Advisory
+noaa_active_warning,civil_danger_warning,Civil Danger Warning
+noaa_active_warning,civil_emergency_message,Civil Emergency Message
+noaa_active_warning,coastal_flood_advisory,Coastal Flood Advisory
+noaa_active_warning,coastal_flood_warning,Coastal Flood Warning
+noaa_active_warning,cold_weather_advisory,Cold Weather Advisory
+noaa_active_warning,dense_fog_advisory,Dense Fog Advisory
+noaa_active_warning,dense_smoke_advisory,Dense Smoke Advisory
+noaa_active_warning,dust_advisory,Dust Advisory
+noaa_active_warning,dust_storm_warning,Dust Storm Warning
+noaa_active_warning,earthquake_warning,Earthquake Warning
+noaa_active_warning,evacuation_immediate,Evacuation Immediate
+noaa_active_warning,extreme_cold_warning,Extreme Cold Warning
+noaa_active_warning,extreme_heat_warning,Extreme Heat Warning
+noaa_active_warning,extreme_wind_warning,Extreme Wind Warning
+noaa_active_warning,fire_warning,Fire Warning
+noaa_active_warning,flash_flood_statement,Flash Flood Statement
+noaa_active_warning,flash_flood_warning,Flash Flood Warning
+noaa_active_warning,flash_flood_watch,Flash Flood Watch
+noaa_active_warning,flood_advisory,Flood Advisory
+noaa_active_warning,flood_statement,Flood Statement
+noaa_active_warning,flood_warning,Flood Warning
+noaa_active_warning,freeze_warning,Freeze Warning
+noaa_active_warning,freezing_fog_advisory,Freezing Fog Advisory
+noaa_active_warning,freezing_spray_advisory,Freezing Spray Advisory
+noaa_active_warning,frost_advisory,Frost Advisory
+noaa_active_warning,gale_warning,Gale Warning
+noaa_active_warning,gale_watch,Gale Watch
+noaa_active_warning,hazardous_materials_warning,Hazardous Materials Warning
+noaa_active_warning,hazardous_seas_warning,Hazardous Seas Warning
+noaa_active_warning,hazardous_seas_watch,Hazardous Seas Watch
+noaa_active_warning,heat_advisory,Heat Advisory
+noaa_active_warning,heavy_freezing_spray_warning,Heavy Freezing Spray Warning
+noaa_active_warning,high_surf_advisory,High Surf Advisory
+noaa_active_warning,high_surf_warning,High Surf Warning
+noaa_active_warning,high_wind_warning,High Wind Warning
+noaa_active_warning,hurricane_force_wind_warning,Hurricane Force Wind Warning
+noaa_active_warning,hurricane_force_wind_watch,Hurricane Force Wind Watch
+noaa_active_warning,hurricane_warning,Hurricane Warning
+noaa_active_warning,hurricane_watch,Hurricane Watch
+noaa_active_warning,ice_storm_warning,Ice Storm Warning
+noaa_active_warning,lake_effect_snow_warning,Lake Effect Snow Warning
+noaa_active_warning,lake_wind_advisory,Lake Wind Advisory
+noaa_active_warning,lakeshore_flood_advisory,Lakeshore Flood Advisory
+noaa_active_warning,lakeshore_flood_warning,Lakeshore Flood Warning
+noaa_active_warning,law_enforcement_warning,Law Enforcement Warning
+noaa_active_warning,local_area_emergency,Local Area Emergency
+noaa_active_warning,low_water_advisory,Low Water Advisory
+noaa_active_warning,nuclear_power_plant_warning,Nuclear Power Plant Warning
+noaa_active_warning,radiological_hazard_warning,Radiological Hazard Warning
+noaa_active_warning,red_flag_warning,Red Flag Warning
+noaa_active_warning,rip_current_statement,Rip Current Statement
+noaa_active_warning,severe_thunderstorm_warning,Severe Thunderstorm Warning
+noaa_active_warning,severe_thunderstorm_watch,Severe Thunderstorm Watch
+noaa_active_warning,severe_weather_statement,Severe Weather Statement
+noaa_active_warning,shelter_in_place_warning,Shelter In Place Warning
+noaa_active_warning,small_craft_advisory,Small Craft Advisory
+noaa_active_warning,snow_squall_warning,Snow Squall Warning
+noaa_active_warning,special_marine_warning,Special Marine Warning
+noaa_active_warning,storm_surge_warning,Storm Surge Warning
+noaa_active_warning,storm_surge_watch,Storm Surge Watch
+noaa_active_warning,storm_warning,Storm Warning
+noaa_active_warning,storm_watch,Storm Watch
+noaa_active_warning,tornado_warning,Tornado Warning
+noaa_active_warning,tornado_watch,Tornado Watch
+noaa_active_warning,tropical_cyclone_local_statement,Tropical Cyclone Local Statement
+noaa_active_warning,tropical_storm_warning,Tropical Storm Warning
+noaa_active_warning,tropical_storm_watch,Tropical Storm Watch
+noaa_active_warning,tsunami_advisory,Tsunami Advisory
+noaa_active_warning,tsunami_warning,Tsunami Warning
+noaa_active_warning,tsunami_watch,Tsunami Watch
+noaa_active_warning,typhoon_warning,Typhoon Warning
+noaa_active_warning,typhoon_watch,Typhoon Watch
+noaa_active_warning,volcano_warning,Volcano Warning
+noaa_active_warning,wind_advisory,Wind Advisory
+noaa_active_warning,winter_storm_warning,Winter Storm Warning
+noaa_active_warning,winter_storm_watch,Winter Storm Watch
+noaa_active_warning,winter_weather_advisory,Winter Weather Advisory
+noaa_active_warning,aftershock_forecast,Aftershock Forecast
+noaa_active_warning,did_you_feel_it_(dyfi)_event,Did You Feel It? (DYFI) Event
+noaa_active_warning,pager_green_alert,PAGER Green Alert
+noaa_active_warning,pager_orange_alert,PAGER Orange Alert
+noaa_active_warning,pager_red_alert,PAGER Red Alert
+noaa_active_warning,pager_yellow_alert,PAGER Yellow Alert
+noaa_active_warning,shakealert_advisory,ShakeAlert Advisory
+noaa_active_warning,shakealert_warning,ShakeAlert Warning
+noaa_active_warning,volcano_advisory,Volcano Advisory
+noaa_active_warning,volcano_normal,Volcano Normal
+noaa_active_warning,volcano_warning,Volcano Warning
+noaa_active_warning,volcano_watch,Volcano Watch

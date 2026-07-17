@@ -1,0 +1,16 @@
+Alert_Type,Category,Priority,Criteria,Hex_Code,Source
+Red Flag Warning,Meteorological / Operational,1,"Critical fire weather conditions imminent or occurring (combination of high winds, low RH, and dry fuels)",FF1493,NWS
+Fire Weather Watch,Meteorological / Operational,2,Conditions favorable for the development of critical fire weather within 24 to 72 hours,FFD700,NWS
+Extreme Fire Behavior Warning,Operational Threat,3,"Rapid rate of spread, intense crowning, spotting, or fire whirls present, compromising safety",D32F2F,NWS/Incident Command
+Evacuation Order (Go Now!),Life Safety,4,Immediate threat to life and property. An explicit command to clear an area immediately.,FF0000,Local Law Enforcement / Fire Authority
+Evacuation Warning (Set / Be Ready),Life Safety,5,High probability of threat to life and safety. Prepare to clear the area at a moment's notice.,FFA500,Local Law Enforcement / Fire Authority
+Evacuation Advisory / Shelter-in-Place,Life Safety,6,Conditions require staying indoors or restricted movement due to fire path shifts or heavy active smoke zones.,303F9F,Local Law Enforcement / Fire Authority
+Hazardous Smoke Alert (AQI 301-500),Public Health,7,PM2.5 concentrations pose an emergency condition; everyone is highly likely to experience serious health effects.,7E0023,EPA / AirNow
+Very Unhealthy Smoke Alert (AQI 201-300),Public Health,8,Significant risk of respiratory irritation and cardiovascular stress for the general population.,8F3F97,EPA / AirNow
+Unhealthy Smoke Alert (AQI 151-200),Public Health,9,"Active children, adults, and people with respiratory diseases should avoid prolonged outdoor exertion.",FF0000,EPA / AirNow
+Unhealthy for Sensitive Groups (AQI 101-150),Public Health,10,Members of sensitive groups may experience health effects; general public is less likely to be affected.,FF7E00,EPA / AirNow
+Extreme Fire Danger Rating,Wildland Fire Assessment,11,"Fires start quickly, spread furiously, and are very difficult to control. Direct attack rarely successful.",B71C1C,USFS / BLM / NWCG
+Very High Fire Danger Rating,Wildland Fire Assessment,12,Fires start easily from all causes and spread rapidly with high intensity. Spotting is a constant threat.,E65100,USFS / BLM / NWCG
+High Fire Danger Rating,Wildland Fire Assessment,13,All fine dead fuels ignite readily and fires start easily. Spread can become rapid.,F57F17,USFS / BLM / NWCG
+Moderate Fire Danger Rating,Wildland Fire Assessment,14,"Fires can start from most accidental causes, but spread is moderate. Control is relatively easy.",4CAF50,USFS / BLM / NWCG
+Low Fire Danger Rating,Wildland Fire Assessment,15,Fuels do not ignite readily. Spreads slowly. Low danger level.,1B5E20,USFS / BLM / NWCG

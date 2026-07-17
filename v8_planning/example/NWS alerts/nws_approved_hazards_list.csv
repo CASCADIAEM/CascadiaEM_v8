@@ -1,0 +1,88 @@
+Hazard_Name,Priority,Significance,Hex_Code
+Tsunami Warning,1,Warning,FD6347
+Tornado Warning,2,Warning,FF0000
+Extreme Wind Warning,3,Warning,FF8C00
+Severe Thunderstorm Warning,4,Warning,FFA500
+Flash Flood Warning,5,Warning,8B0000
+Flash Flood Statement,6,Statement,8B0000
+Severe Weather Statement,7,Statement,00FFFF
+Shelter In Place Warning,8,Warning,FA8072
+Evacuation Immediate,9,Warning,7FFF00
+Civil Danger Warning,10,Warning,FFB6C1
+Nuclear Power Plant Warning,11,Warning,4B0082
+Radiological Hazard Warning,12,Warning,4B0082
+Hazardous Materials Warning,13,Warning,4B0082
+Fire Warning,14,Warning,A0522D
+Civil Emergency Message,15,Statement,FFB6C1
+Law Enforcement Warning,16,Warning,C0C0C0
+Storm Surge Warning,17,Warning,B524F7
+Hurricane Force Wind Warning,18,Warning,CD5C5C
+Hurricane Warning,19,Warning,DC143C
+Typhoon Warning,20,Warning,DC143C
+Special Marine Warning,21,Warning,FFA500
+Blizzard Warning,22,Warning,FF4500
+Snow Squall Warning,23,Warning,C71585
+Ice Storm Warning,24,Warning,8B008B
+Heavy Freezing Spray Warning,25,Warning,00BFFF
+Winter Storm Warning,26,Warning,FF69B4
+Lake Effect Snow Warning,27,Warning,008B8B
+Dust Storm Warning,28,Warning,FFE4C4
+Blowing Dust Warning,29,Warning,FFE4C4
+High Wind Warning,30,Warning,DAA520
+Tropical Storm Warning,31,Warning,B22222
+Storm Warning,32,Warning,9400D3
+Tsunami Advisory,33,Advisory,D2691E
+Tsunami Watch,34,Watch,FF00FF
+Avalanche Warning,35,Warning,1E90FF
+Earthquake Warning,36,Warning,8B4513
+Volcano Warning,37,Warning,2F4F4F
+Ashfall Warning,38,Warning,A9A9A9
+Flood Warning,39,Warning,00FF00
+Coastal Flood Warning,40,Warning,228B22
+Lakeshore Flood Warning,41,Warning,228B22
+Ashfall Advisory,42,Advisory,696969
+High Surf Warning,43,Warning,228B22
+Extreme Heat Warning,44,Warning,C71585
+Tornado Watch,45,Watch,FFFF00
+Severe Thunderstorm Watch,46,Watch,DB7093
+Flash Flood Watch,47,Watch,2E8B57
+Gale Warning,48,Warning,DDA0DD
+Flood Statement,49,Statement,00FF00
+Extreme Cold Warning,50,Warning,0000FF
+Freeze Warning,51,Warning,483D8B
+Red Flag Warning,52,Warning,FF1493
+Storm Surge Watch,53,Watch,DB7FF7
+Hurricane Watch,54,Watch,FF00FF
+Hurricane Force Wind Watch,55,Watch,9932CC
+Typhoon Watch,56,Watch,FF00FF
+Tropical Storm Watch,57,Watch,F08080
+Storm Watch,58,Watch,FFE4B5
+Tropical Cyclone Local Statement,59,Statement,FFE4B5
+Winter Weather Advisory,60,Advisory,7B68EE
+Avalanche Advisory,61,Advisory,CD853F
+Cold Weather Advisory,62,Advisory,AFEEEE
+Heat Advisory,63,Advisory,FF7F50
+Flood Advisory,64,Advisory,00FF7F
+Coastal Flood Advisory,65,Advisory,7CFC00
+Lakeshore Flood Advisory,66,Advisory,7CFC00
+High Surf Advisory,67,Advisory,BA55D3
+Dense Fog Advisory,68,Advisory,708090
+Dense Smoke Advisory,69,Advisory,F0E68C
+Small Craft Advisory,70,Advisory,D8BFD8
+Brisk Wind Advisory,71,Advisory,D8BFD8
+Hazardous Seas Warning,72,Warning,D8BFD8
+Dust Advisory,73,Advisory,BDB76B
+Blowing Dust Advisory,74,Advisory,BDB76B
+Lake Wind Advisory,75,Advisory,D2B48C
+Wind Advisory,76,Advisory,D2B48C
+Frost Advisory,77,Advisory,6495ED
+Freezing Fog Advisory,78,Advisory,008080
+Freezing Spray Advisory,79,Advisory,00BFFF
+Low Water Advisory,80,Advisory,A52A24
+Local Area Emergency,81,Warning,C0C0C0
+Winter Storm Watch,82,Watch,4682B4
+Rip Current Statement,83,Statement,40E0D0
+Beach Hazards Statement,84,Statement,40E0D0
+Gale Watch,85,Watch,FFC0CB
+Avalanche Watch,86,Watch,F4A460
+Hazardous Seas Watch,87,Watch,483D8B

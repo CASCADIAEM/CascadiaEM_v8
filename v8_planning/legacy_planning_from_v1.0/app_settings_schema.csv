@@ -1,0 +1,7 @@
+Field ID (Technical),Display Label (UI),Input Component Type,Data Type,Validation / Requirements,API Payload Key
+server_endpoint,BACKEND ENDPOINT URL,Text Input,String,Default: http://127.0.0.1:5001,server_url
+active_tenant_id,DEFAULT TENANT IDENTIFIER,Text Input,String,Default: CASCADIA_EM_COMMS,default_tenant
+twilio_sim_mode,TWILIO OUT-OF-BAND SIMULATION,Toggle Button,Boolean,Default: True (Simulator active),sim_mode
+email_dispatch_gate,TEST EMAIL DATA LOCK,Toggle Button,Boolean,Default: True (Only mail to authorized list),email_data_isolation
+auto_purge_interval,PATRON DATA PURGE TIMEOUT,Dropdown Selector,String (Enum),5 Days (Strict Compliance) / 24 Hours / 12 Hours,data_purge_timeout
+ics_incident_commander,DEFAULT INCIDENT COMMANDER,Text Input,String,Default: michael.b.fearnehough,default_commander

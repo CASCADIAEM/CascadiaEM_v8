@@ -1,0 +1,7 @@
+Field ID (Technical),Display Label (UI),Input Component Type,Data Type,Validation / Requirements,API Payload Key
+team_name,TACTICAL UNIT / TEAM CALLSIGN,Text Input,String,Required (e.g. Cascadia Alpha / Watch-1),unit_callsign
+team_leader,UNIT COMMANDER / LEADER,Text Input,String,Required,unit_commander
+operator_role,OPERATIONAL ASSIGNMENT,Dropdown Selector,String (Enum),Search and Rescue / Communications / Medical / Recon,operational_assignment
+personnel_count,DEPLOYED STRENGTH (COUNT),Number Input,Integer,Required,personnel_count
+comms_channel,TACTICAL COMMUNICATIONS HOOK,Dropdown Selector,String (Enum),Tactical-1 (VHF) / Air-to-Ground / Satellite-Net / Pager-Primary,comms_hook
+unit_status,CURRENT OPERATIONAL STATUS,Dropdown Selector,String (Enum),Active Duty / Standby / Out of Service / Transit,unit_status

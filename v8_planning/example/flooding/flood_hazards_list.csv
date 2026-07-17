@@ -1,0 +1,18 @@
+Alert_Type,Category,Priority,Criteria,Hex_Code,Source
+Flash Flood Emergency,Immediate Life Safety,1,"Exceedingly rare, catastrophic flash flooding posing an immediate, severe threat to human life and property (e.g., dam failure, rapid historic rainfall surges).",B71C1C,NWS
+Flash Flood Warning,Immediate Operational,2,"Rapid, dangerous flooding is imminent or occurring, typically caused by intense rainfall, dam breaks, or sudden ice jams.",8B0000,NWS
+Debris Flow / Mudslide Warning,Geological/Hydrological,3,"Heavy rainfall on burn scars or unstable terrain causing immediate risk of fast-moving mud, rock, and debris flows.",A0522D,NWS / USGS
+Flood Warning,Standard Operational,4,"Inundation of normally dry areas is imminent or occurring, usually alongside rivers or prolonged heavy rainfall over days.",00FF00,NWS
+Coastal Flood Warning,Coastal Hazards,5,"Serious risk of coastal inundation due to storm surge, high tides, or strong onshore winds.",228B22,NWS
+Lakeshore Flood Warning,Inland Lakes,6,"Inundation along major lake shorelines due to lake water surges, seiches, or high wind waves.",228B22,NWS
+Storm Surge Warning,Tropical/Coastal,7,Danger of life-threatening rising water moving inland from the shoreline within specified coastal areas.,B524F7,NWS
+Flash Flood Watch,Preparedness,8,Conditions are highly favorable for flash flooding to develop within the watch area.,2E8B57,NWS
+Flood Watch,Preparedness,9,"Conditions are favorable for flooding, usually across a broad geographical footprint over a prolonged timeframe.",2E8B57,NWS
+Coastal Flood Watch,Preparedness,10,Conditions are favorable for significant coastal flooding within 12 to 48 hours.,66CDAA,NWS
+Storm Surge Watch,Tropical/Coastal,11,"Possibility of life-threatening rising water moving inland from the shoreline within specified areas, generally within 48 hours.",DB7FF7,NWS
+Flood Advisory,Situational Awareness,12,"Minor flooding is occurring or imminent, causing significant inconvenience (e.g., minor street flooding) but not yet a major threat.",00FF7F,NWS
+Coastal Flood Advisory,Situational Awareness,13,"Minor coastal flooding is occurring or expected, causing minor overland travel impacts.",7CFC00,NWS
+Flood Statement,Information Update,14,"Follow-up messaging issued by local NWS offices to provide updated river gauge metrics, impact details, or expiration updates.",00FF00,NWS
+Major River Flooding Stage,Hydrological Severity,15,"River gauge reaches major flood stage thresholds. Extensive, severe inundation of structures, roads, and infrastructure expected.",FF0000,NWS / USGS / FEMA
+Moderate River Flooding Stage,Hydrological Severity,16,River gauge reaches moderate flood stage. Some evacuation of low-lying areas and closures of secondary roads expected.,FFA500,NWS / USGS / FEMA
+Minor River Flooding Stage,Hydrological Severity,17,"River gauge reaches minor flood stage. Minimal or no property damage, but public inconvenience and low-lying road coverage likely.",FFFF00,NWS / USGS / FEMA

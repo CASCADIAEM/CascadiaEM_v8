@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Arial', 'Helvetica', sans-serif;
+}
+
+@layer base {
+  :root {
+    --font-sans: 'Arial', 'Helvetica', sans-serif;
+    --ui-scale: 1.22;
+    
+    /* Premium Slate Dark Theme */
+    --command-bg: #09090b;
+    --card-bg: rgba(18, 18, 22, 0.85);
+    --border-color: rgba(63, 63, 70, 0.4);
+    --neon-amber: #e0a905;
+    --neon-amber-glow: rgba(224, 169, 5, 0.15);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+  }
+
+  /* Force global Arial/Helvetica typography across all HTML elements */
+  *, html, body, #root, .font-sans {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+  }
+
+  /* Maintain standard monospaced layout tracking for serials, times, and tabular grids */
+  .font-mono, .font-mono *, code, pre, input[type="date"], input[type="time"] {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  }
+
+  html {
+    font-size: calc(16px * var(--ui-scale));
+    background-color: var(--command-bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply min-h-screen overflow-x-hidden;
+    background-color: var(--command-bg);
+  }
+
+  /* Custom high-contrast outline buttons and cards */
+  .glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-card-glow {
+    border: 1px solid var(--neon-amber);
+    box-shadow: 0 0 15px var(--neon-amber-glow);
+  }
+
+  .eoc-button {
+    @apply px-4 py-2 bg-zinc-900 border border-zinc-700 hover:border-zinc-500 hover:bg-zinc-800 text-zinc-100 rounded-lg font-bold transition-all active:scale-95 text-sm uppercase tracking-wide cursor-pointer flex items-center justify-center gap-2;
+  }
+
+  .eoc-button-primary {
+    @apply px-4 py-2 bg-amber-500 hover:bg-amber-600 border border-amber-400 text-black font-extrabold rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wide cursor-pointer flex items-center justify-center gap-2;
+  }
+
+  .eoc-input {
+    @apply bg-zinc-950 border border-zinc-800 focus:border-amber-500 text-zinc-100 rounded-lg p-3 text-sm focus:outline-none placeholder-zinc-600 w-full;
+  }
+
+  /* Invert native date/time picker browser icons for dark mode */
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1) opacity(0.75);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  ::-webkit-calendar-picker-indicator:hover {
+    filter: invert(100%) sepia(100%) saturate(10000%) hue-rotate(0deg) opacity(1);
+  }
+
+  /* Custom scrollbars for professional look */
+  .custom-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 3px;
+  }
+  .custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+  }
+}

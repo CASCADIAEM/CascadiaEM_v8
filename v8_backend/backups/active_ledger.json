@@ -1,0 +1,1632 @@
+[
+  {
+    "id": "PKT-init-1",
+    "timestamp": "2026-07-09T09:36:01.444884",
+    "type": "SYSTEM",
+    "origin": "CASCADIA_SENTINEL_OS",
+    "payload": {
+      "message": "[SYSTEM ONLINE]: CASCADIA SENTINEL OS v7 CORE ENGINE SUCCESSFUL COLD-START."
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-init-2",
+    "timestamp": "2026-07-09T09:51:01.444895",
+    "type": "SYSTEM",
+    "origin": "CASCADIA_MATRIX_BACKEND",
+    "payload": {
+      "message": "[BACKEND ONLINE]: FLASK TELEMETRY GATEWAY BINDING TO LOCAL PORT 5001."
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-init-3",
+    "timestamp": "2026-07-09T10:06:01.444898",
+    "type": "LOGISTICS",
+    "origin": "CASCADIA_LOG_CHIEF",
+    "payload": {
+      "message": "[LOGISTICS STANDBY]: ROSTER COUPLING DISPATCHED TO SHELTERS AND DISPATCH NETWORKS."
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-init-4",
+    "timestamp": "2026-07-09T10:36:01.444900",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "[PRE-FLIGHT ADVISORY]: ICS-201/214 COMPLIANCE LAYERS VERIFIED AND LOCKED."
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783622967781-963",
+    "timestamp": "2026-07-09T11:49:27.781042",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783622977783-168",
+    "timestamp": "2026-07-09T11:49:37.783488",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783622987787-493",
+    "timestamp": "2026-07-09T11:49:47.788017",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783622997781-544",
+    "timestamp": "2026-07-09T11:49:57.781729",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623007790-759",
+    "timestamp": "2026-07-09T11:50:07.790051",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623017789-105",
+    "timestamp": "2026-07-09T11:50:17.789647",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623027792-678",
+    "timestamp": "2026-07-09T11:50:27.792941",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623037793-190",
+    "timestamp": "2026-07-09T11:50:37.793600",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623047789-911",
+    "timestamp": "2026-07-09T11:50:47.789168",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623057794-819",
+    "timestamp": "2026-07-09T11:50:57.794387",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623067793-938",
+    "timestamp": "2026-07-09T11:51:07.793707",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623077786-798",
+    "timestamp": "2026-07-09T11:51:17.786175",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623087793-636",
+    "timestamp": "2026-07-09T11:51:27.793582",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623097792-568",
+    "timestamp": "2026-07-09T11:51:37.792179",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623107786-478",
+    "timestamp": "2026-07-09T11:51:47.786212",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623117793-612",
+    "timestamp": "2026-07-09T11:51:57.793582",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623127785-281",
+    "timestamp": "2026-07-09T11:52:07.785873",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623137797-417",
+    "timestamp": "2026-07-09T11:52:17.797265",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623147795-885",
+    "timestamp": "2026-07-09T11:52:27.795147",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623157796-757",
+    "timestamp": "2026-07-09T11:52:37.796943",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623167796-326",
+    "timestamp": "2026-07-09T11:52:47.796519",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623177788-271",
+    "timestamp": "2026-07-09T11:52:57.788497",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623187790-930",
+    "timestamp": "2026-07-09T11:53:07.790867",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623197794-863",
+    "timestamp": "2026-07-09T11:53:17.794266",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623207797-864",
+    "timestamp": "2026-07-09T11:53:27.797736",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623217788-726",
+    "timestamp": "2026-07-09T11:53:37.788981",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623227793-528",
+    "timestamp": "2026-07-09T11:53:47.793118",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623237792-972",
+    "timestamp": "2026-07-09T11:53:57.792651",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623247791-951",
+    "timestamp": "2026-07-09T11:54:07.791414",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623257784-166",
+    "timestamp": "2026-07-09T11:54:17.784125",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623267797-628",
+    "timestamp": "2026-07-09T11:54:27.797081",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623277785-793",
+    "timestamp": "2026-07-09T11:54:37.785931",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623287792-796",
+    "timestamp": "2026-07-09T11:54:47.792654",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623297786-126",
+    "timestamp": "2026-07-09T11:54:57.786926",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623307794-922",
+    "timestamp": "2026-07-09T11:55:07.794885",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623317793-400",
+    "timestamp": "2026-07-09T11:55:17.793704",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623327796-186",
+    "timestamp": "2026-07-09T11:55:27.796456",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623337796-938",
+    "timestamp": "2026-07-09T11:55:37.796894",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623347792-517",
+    "timestamp": "2026-07-09T11:55:47.792378",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623357797-654",
+    "timestamp": "2026-07-09T11:55:57.797265",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623367786-242",
+    "timestamp": "2026-07-09T11:56:07.786610",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623377793-382",
+    "timestamp": "2026-07-09T11:56:17.793516",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623387785-745",
+    "timestamp": "2026-07-09T11:56:27.785500",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623397794-648",
+    "timestamp": "2026-07-09T11:56:37.794721",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623407799-713",
+    "timestamp": "2026-07-09T11:56:47.799466",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623417786-244",
+    "timestamp": "2026-07-09T11:56:57.786296",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623427794-716",
+    "timestamp": "2026-07-09T11:57:07.794913",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623436038-538",
+    "timestamp": "2026-07-09T11:57:16.038327",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623438455-781",
+    "timestamp": "2026-07-09T11:57:18.455064",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623446048-331",
+    "timestamp": "2026-07-09T11:57:26.048056",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623448453-777",
+    "timestamp": "2026-07-09T11:57:28.453369",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623456047-960",
+    "timestamp": "2026-07-09T11:57:36.047983",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623458462-823",
+    "timestamp": "2026-07-09T11:57:38.462255",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623466041-280",
+    "timestamp": "2026-07-09T11:57:46.041924",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623468468-295",
+    "timestamp": "2026-07-09T11:57:48.468605",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623476047-538",
+    "timestamp": "2026-07-09T11:57:56.048019",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623478453-742",
+    "timestamp": "2026-07-09T11:57:58.453376",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623486038-745",
+    "timestamp": "2026-07-09T11:58:06.038306",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623488450-969",
+    "timestamp": "2026-07-09T11:58:08.450174",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623496046-695",
+    "timestamp": "2026-07-09T11:58:16.046291",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623501460-268",
+    "timestamp": "2026-07-09T11:58:21.460552",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623506040-312",
+    "timestamp": "2026-07-09T11:58:26.040085",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623516041-705",
+    "timestamp": "2026-07-09T11:58:36.041386",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623526049-729",
+    "timestamp": "2026-07-09T11:58:46.049128",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623536043-968",
+    "timestamp": "2026-07-09T11:58:56.043824",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623546040-434",
+    "timestamp": "2026-07-09T11:59:06.040552",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623556042-692",
+    "timestamp": "2026-07-09T11:59:16.042586",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623561469-563",
+    "timestamp": "2026-07-09T11:59:21.469887",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623566048-121",
+    "timestamp": "2026-07-09T11:59:26.048550",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623576048-543",
+    "timestamp": "2026-07-09T11:59:36.048892",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623586042-207",
+    "timestamp": "2026-07-09T11:59:46.042680",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623596046-346",
+    "timestamp": "2026-07-09T11:59:56.046545",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623605737-935",
+    "timestamp": "2026-07-09T12:00:05.737764",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: WILDFIRE | Address: 1234 MAIN STREET SE, AUBURN, WA | Notes: FIRE FIRE "
+    },
+    "severity": "medium"
+  },
+  {
+    "id": "PKT-1783623606045-414",
+    "timestamp": "2026-07-09T12:00:06.045097",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623616038-225",
+    "timestamp": "2026-07-09T12:00:16.038815",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623621469-104",
+    "timestamp": "2026-07-09T12:00:21.469249",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623626133-763",
+    "timestamp": "2026-07-09T12:00:26.133585",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623636051-792",
+    "timestamp": "2026-07-09T12:00:36.051559",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623646044-917",
+    "timestamp": "2026-07-09T12:00:46.044426",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623656044-240",
+    "timestamp": "2026-07-09T12:00:56.044640",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623666041-623",
+    "timestamp": "2026-07-09T12:01:06.041834",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623676041-917",
+    "timestamp": "2026-07-09T12:01:16.041946",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623681462-361",
+    "timestamp": "2026-07-09T12:01:21.462406",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623686045-133",
+    "timestamp": "2026-07-09T12:01:26.045695",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623696050-707",
+    "timestamp": "2026-07-09T12:01:36.050457",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623706050-619",
+    "timestamp": "2026-07-09T12:01:46.050881",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623716049-268",
+    "timestamp": "2026-07-09T12:01:56.049436",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623726042-576",
+    "timestamp": "2026-07-09T12:02:06.042706",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623736049-636",
+    "timestamp": "2026-07-09T12:02:16.049771",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623741476-428",
+    "timestamp": "2026-07-09T12:02:21.476785",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623746047-881",
+    "timestamp": "2026-07-09T12:02:26.047374",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623756051-338",
+    "timestamp": "2026-07-09T12:02:36.051551",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623766042-451",
+    "timestamp": "2026-07-09T12:02:46.042416",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623776050-657",
+    "timestamp": "2026-07-09T12:02:56.050753",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623786049-201",
+    "timestamp": "2026-07-09T12:03:06.049712",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623796048-183",
+    "timestamp": "2026-07-09T12:03:16.048363",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623801469-622",
+    "timestamp": "2026-07-09T12:03:21.469775",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623806049-682",
+    "timestamp": "2026-07-09T12:03:26.049293",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623816049-717",
+    "timestamp": "2026-07-09T12:03:36.049466",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623826054-293",
+    "timestamp": "2026-07-09T12:03:46.054107",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623836040-173",
+    "timestamp": "2026-07-09T12:03:56.040370",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623846054-959",
+    "timestamp": "2026-07-09T12:04:06.054535",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623856042-419",
+    "timestamp": "2026-07-09T12:04:16.042528",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623861474-418",
+    "timestamp": "2026-07-09T12:04:21.474815",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623866047-529",
+    "timestamp": "2026-07-09T12:04:26.047201",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623876040-289",
+    "timestamp": "2026-07-09T12:04:36.040298",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623886051-544",
+    "timestamp": "2026-07-09T12:04:46.051215",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623896050-891",
+    "timestamp": "2026-07-09T12:04:56.050829",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623906050-414",
+    "timestamp": "2026-07-09T12:05:06.050959",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623916051-752",
+    "timestamp": "2026-07-09T12:05:16.051182",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623921469-599",
+    "timestamp": "2026-07-09T12:05:21.469351",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623926047-821",
+    "timestamp": "2026-07-09T12:05:26.047394",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623936050-683",
+    "timestamp": "2026-07-09T12:05:36.050588",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623946051-228",
+    "timestamp": "2026-07-09T12:05:46.051524",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623956050-738",
+    "timestamp": "2026-07-09T12:05:56.051009",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623966051-123",
+    "timestamp": "2026-07-09T12:06:06.051356",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623976052-113",
+    "timestamp": "2026-07-09T12:06:16.052102",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623981476-414",
+    "timestamp": "2026-07-09T12:06:21.476549",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623986045-920",
+    "timestamp": "2026-07-09T12:06:26.045159",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783623996051-568",
+    "timestamp": "2026-07-09T12:06:36.051380",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624006043-301",
+    "timestamp": "2026-07-09T12:06:46.043254",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624016051-413",
+    "timestamp": "2026-07-09T12:06:56.051553",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624026040-897",
+    "timestamp": "2026-07-09T12:07:06.040890",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624036052-880",
+    "timestamp": "2026-07-09T12:07:16.052678",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624041468-686",
+    "timestamp": "2026-07-09T12:07:21.468561",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624046048-375",
+    "timestamp": "2026-07-09T12:07:26.048054",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624056043-581",
+    "timestamp": "2026-07-09T12:07:36.043902",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624066476-856",
+    "timestamp": "2026-07-09T12:07:46.476283",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624076458-870",
+    "timestamp": "2026-07-09T12:07:56.458788",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624086053-636",
+    "timestamp": "2026-07-09T12:08:06.053517",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624096050-481",
+    "timestamp": "2026-07-09T12:08:16.051001",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624101467-682",
+    "timestamp": "2026-07-09T12:08:21.467421",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624106043-165",
+    "timestamp": "2026-07-09T12:08:26.043865",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624116052-711",
+    "timestamp": "2026-07-09T12:08:36.052779",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624126053-756",
+    "timestamp": "2026-07-09T12:08:46.053130",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624136053-547",
+    "timestamp": "2026-07-09T12:08:56.053264",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624146030-760",
+    "timestamp": "2026-07-09T12:09:06.030796",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624156019-777",
+    "timestamp": "2026-07-09T12:09:16.019314",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624161441-629",
+    "timestamp": "2026-07-09T12:09:21.441792",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624166020-825",
+    "timestamp": "2026-07-09T12:09:26.021014",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624176014-495",
+    "timestamp": "2026-07-09T12:09:36.014165",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624186007-258",
+    "timestamp": "2026-07-09T12:09:46.007773",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624186976-861",
+    "timestamp": "2026-07-09T12:09:46.976333",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624196980-916",
+    "timestamp": "2026-07-09T12:09:56.980235",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624206989-500",
+    "timestamp": "2026-07-09T12:10:06.989530",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624216977-593",
+    "timestamp": "2026-07-09T12:10:16.977079",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624221425-687",
+    "timestamp": "2026-07-09T12:10:21.425219",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624226978-885",
+    "timestamp": "2026-07-09T12:10:26.978916",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624236981-870",
+    "timestamp": "2026-07-09T12:10:36.981704",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624246986-601",
+    "timestamp": "2026-07-09T12:10:46.986315",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624256980-842",
+    "timestamp": "2026-07-09T12:10:56.980106",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624266983-970",
+    "timestamp": "2026-07-09T12:11:06.983085",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624276979-872",
+    "timestamp": "2026-07-09T12:11:16.979110",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624281427-286",
+    "timestamp": "2026-07-09T12:11:21.427872",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624286984-839",
+    "timestamp": "2026-07-09T12:11:26.984304",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624296981-376",
+    "timestamp": "2026-07-09T12:11:36.981903",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624341422-364",
+    "timestamp": "2026-07-09T12:12:21.422029",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624401423-694",
+    "timestamp": "2026-07-09T12:13:21.423500",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  },
+  {
+    "id": "PKT-1783624420013-253",
+    "timestamp": "2026-07-09T12:13:40.013277",
+    "type": "COMMS",
+    "origin": "CASCADIA_EM_ALERTS",
+    "payload": {
+      "message": "\ud83d\udccb [FIELD_OPS] Update: LOG UPDATE"
+    },
+    "severity": "low"
+  }
+]

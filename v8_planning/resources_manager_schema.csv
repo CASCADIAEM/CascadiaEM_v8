@@ -1,0 +1,7 @@
+Field ID (Technical),Display Label (UI),Input Component Type,Data Type,Validation / Requirements,API Payload Key
+resource_name,RESOURCE / INVENTORY ITEM NAME,Text Input,String,Required (e.g. 50kW Generator / Medical Cot Kits),item_name
+resource_category,RESOURCE NIMS CATEGORY,Dropdown Selector,String (Enum),Equipment / Vehicles / Consumables / Communications Gear,nims_category
+total_in_stock,TOTAL STOCK ONHAND,Number Input,Integer,Required,onhand_count
+allocated_stock,ALLOCATED / FIELD ASSIGNED,Number Input,Integer,Required,allocated_count
+storage_location,PHYSICAL SHELTER / STAGING DEPOT,Dropdown Selector,String (Enum),EOC Logistics Annex / Staging Alpha / West Shelter Base,storage_location
+item_status,RESOURCE READINESS RATING,Dropdown Selector,String (Enum),Operational / Needs Service / Depleted,readiness_rating

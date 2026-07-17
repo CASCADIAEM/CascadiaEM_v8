@@ -1,0 +1,7 @@
+Field ID (Technical),Display Label (UI),Input Component Type,Data Type,Validation / Requirements,API Payload Key
+contact_fullname,CONTACT FULL NAME,Text Input,String,Required,contact_name
+agency_affiliation,AGENCY / MUTUAL AID AFFILIATION,Text Input,String,Required (e.g. Snohomish County Fire / Wash-DOT),agency_name
+contact_role,INCIDENT COORDINATOR ROLE,Dropdown Selector,String (Enum),Liaison Officer / Dispatch Commander / Chief / Agency PIO,liaison_role
+contact_phone,AUTHORIZED CELLULAR / PAGER PHONE,Text Input,String,"Optional, masked outside (206) 786-5300 testing bounds",contact_phone
+contact_email,AUTHORIZED AGENCY EMAIL,Text Input,String,"Optional, restricted to Cascadia testing pool",contact_email
+mutual_aid_status,MUTUAL AID ASSURANCE,Dropdown Selector,String (Enum),Primary Coordination Active / Standby Commitment / Unavailable,assurance_status

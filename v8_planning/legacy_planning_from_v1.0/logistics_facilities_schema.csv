@@ -1,0 +1,7 @@
+Field ID (Technical),Display Label (UI),Input Component Type,Data Type,Validation / Requirements,API Payload Key
+facility_name,FACILITY NAME,Text Input,String,Required (e.g. Enumclaw Community Center),facility_name
+facility_type,FACILITY TYPE,Dropdown Selector,String (Enum),Shelter / Command Post / Staging Area,facility_type
+rated_capacity,RATED CAPACITY (PEOPLE),Number Input,Integer,Required, Must be numeric,capacity
+verified_911_route,VERIFIED 911 ROUTE,Text Input / Autocomplete,String,Required (Enumclaw Cole St reference),verified_route
+keyholder_name,PRIMARY KEYHOLDER NAME,Text Input,String,Optional,keyholder_name
+keyholder_phone,PRIMARY KEYHOLDER PHONE,Text Input,String,"Optional, Must mask non-authorized numbers",keyholder_phone

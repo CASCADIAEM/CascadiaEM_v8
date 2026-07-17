@@ -1,0 +1,5 @@
+Alert_Type,Category,Priority,Criteria,Hex_Code,Source
+Tsunami Warning,Coastal/Life Safety,1,"A tsunami with the potential for widespread flooding is imminent, expected, or occurring. Dangerous coastal flooding and powerful currents are possible. Immediate evacuation of low-lying coastal areas is recommended.",FD6347,NWS / NTWC / PTWC
+Tsunami Advisory,Coastal/Life Safety,2,"A tsunami with the potential to produce strong currents or dangerous waves is expected or occurring. Flooding is not expected to be widespread, but beaches and harbors are hazardous. Stay out of the water.",D2691E,NWS / NTWC / PTWC
+Tsunami Watch,Preparedness,3,"A tsunami may impact the area, usually issued based on seismic event indicators before threat confirmation. Prepare to take action; monitor updates.",FF00FF,NWS / NTWC / PTWC
+Tsunami Information Statement,Information Update,4,"An earthquake has occurred, but there is no threat of a destructive tsunami. Issued to prevent public panic and provide situational awareness.",6495ED,NWS / NTWC / PTWC

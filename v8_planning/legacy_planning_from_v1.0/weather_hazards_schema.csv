@@ -1,0 +1,7 @@
+Field ID (Technical),Display Label (UI),Input Component Type,Data Type,Validation / Requirements,API Payload Key
+weather_temp,INCIDENT MICROCLIMATE TEMP,Number Input,Float,Required (in Fahrenheit),current_temp
+wind_speed,MICROCLIMATE WIND SPEED (MPH),Number Input,Integer,Required,wind_speed
+wind_direction,WIND VECTOR DIRECTION,Dropdown Selector,String (Enum),N / NE / E / SE / S / SW / W / NW,wind_direction
+noaa_active_warning,NOAA ACTIVE SEVERE ALERT,Dropdown Selector,String (Enum),None / Red Flag Warning / High Wind Advisory / Severe Storm,active_warning
+barometric_trend,BAROMETRIC PRESSURE TREND,Dropdown Selector,String (Enum),Rising Steady / Falling Rapidly / Stable,pressure_trend
+hazard_index,LOCAL ENVIRONMENTAL INDEX,Dropdown Selector,String (Enum),Green Normal / Yellow Elevating Hazard / Red Immediate Threat,hazard_index
