@@ -9,9 +9,8 @@ base_dir = os.path.expanduser("~/developer")
 active_dir = os.path.join(base_dir, "CascadiaEM_v8_Active")
 history_dir = os.path.join(base_dir, "HISTORICAL_BUILDS")
 token_meta_file = os.path.join(active_dir, ".token_meta")
+logo_path = os.path.join(active_dir, "logo.jpg")
 
-# Automatic path mapping to your pre-existing repository logo asset
-logo_path = os.path.join(active_dir, "v8_frontend", "public", "assets", "logo", "cem_logo.png")
 has_logo = os.path.exists(logo_path)
 
 # Page Setup with Brand Assets
@@ -142,7 +141,7 @@ frontend_live = is_port_open(8080)
 # 🏛️ HEADER & STRATEGIC BANNER
 # ==========================================
 if has_logo:
-    title_col, logo_col = st.columns([5, 1])
+    title_col, logo_col = st.columns([4, 1])
     with title_col:
         st.title("CascadiaEM Master Control Suite")
         st.caption("Central Operations Control & Cloud Backup Pipeline — Use frequency: Daily during active development sprints to sync codebase snapshots.")
@@ -162,11 +161,11 @@ else:
 # ==========================================
 m_back, m_front, m_git, m_token = st.columns(4)
 with m_back:
-    st.metric("Backend Engine (Port 5001)", "ONLINE" if backend_live else "OFFLINE")
+    st.metric("Backend Engine (Port 5001)", "ONLINE" if backend_live else "OFFLINE", delta=None, delta_color="normal")
 with m_front:
-    st.metric("Frontend Server (Port 8080)", "ONLINE" if frontend_live else "OFFLINE")
+    st.metric("Frontend Server (Port 8080)", "ONLINE" if frontend_live else "OFFLINE", delta=None, delta_color="normal")
 with m_git:
-    total_commits, last_sync = get_git_metrics(active_dir)
+    total_commits, last_sync = get_git_metrics(st.session_state.target_dir)
     st.metric("Total Secured Commits", total_commits, help=f"Last saved modification: {last_sync}")
 with m_token:
     days_left = get_token_days_left()
@@ -186,13 +185,13 @@ with col_back:
     st.subheader("🐍 Python Backend Server")
     if backend_live:
         st.success("🟢 BACKEND CONNECTION LIVE")
-        if st.button("🔴 Stop Backend Server", key="stop_back", use_container_width=True):
+        if st.button("🔴 Stop Backend Server", key="stop_back", use_container_width=True, help="Terminates the process hanging on Port 5001."):
             subprocess.run("lsof -t -i:5001 | xargs kill -9", shell=True)
             st.rerun()
     else:
         st.error("🔴 BACKEND STATUS DOWN")
         if backend_script:
-            if st.button("🟢 Start Backend Server", key="start_back", use_container_width=True):
+            if st.button("🟢 Start Backend Server", key="start_back", use_container_width=True, help="Executes the python3 entry script in the background."):
                 subprocess.Popen(["python3", backend_script], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                 st.toast("Starting Python Engine...", icon="🚀")
                 st.rerun()
@@ -204,7 +203,7 @@ with col_front:
     if frontend_live:
         st.success("🟢 FRONTEND COMPILER RUNNING")
         st.info("🔗 View interface variant link at: http://localhost:8080")
-        if st.button("🔴 Stop Frontend Server", key="stop_front", use_container_width=True):
+        if st.button("🔴 Stop Frontend Server", key="stop_front", use_container_width=True, help="Terminates the server process holding Port 8080."):
             subprocess.run("lsof -t -i:8080 | xargs kill -9", shell=True)
             st.rerun()
     else:
@@ -212,7 +211,7 @@ with col_front:
         if frontend_dir:
             if frontend_type == "react":
                 st.info("⚡ Modern React architecture discovered.")
-                if st.button("🟢 Launch React Server", key="start_front", use_container_width=True):
+                if st.button("🟢 Launch React Server", key="start_front", use_container_width=True, help="Runs 'npm run dev' to boot the Vite compiler."):
                     subprocess.Popen(["npm", "run", "dev"], cwd=frontend_dir, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                     st.toast("Launching Vite Compiler...", icon="⚡")
                     st.rerun()
@@ -233,19 +232,20 @@ if os.path.exists(history_dir):
     with col_select:
         selected_backup = st.selectbox(
             "Choose a Historical Variant to Load:", 
-            ["Active Workspace (Main Build)"] + backups
+            ["Active Workspace (Main Build)"] + backups,
+            help="Selecting a variant targets file pointers to view and run old versions of the app."
         )
     with col_actions:
         st.write("<div style='padding-top:28px;'></div>", unsafe_allow_html=True)
         if selected_backup == "Active Workspace (Main Build)":
-            if st.button("🔄 Reset to Main Active Workspace", use_container_width=True):
+            if st.button("🔄 Reset to Main Active Workspace", use_container_width=True, help="Shuts down running contexts and returns to the primary workspace branch."):
                 if is_port_open(5001): subprocess.run("lsof -t -i:5001 | xargs kill -9", shell=True)
                 if is_port_open(8080): subprocess.run("lsof -t -i:8080 | xargs kill -9", shell=True)
                 st.session_state.target_dir = active_dir
                 st.session_state.target_name = "Active Workspace (Main Build)"
                 st.rerun()
         else:
-            if st.button("🚀 Mount & Preview Selected Version", use_container_width=True):
+            if st.button("🚀 Mount & Preview Selected Version", use_container_width=True, help="Swaps current runtime parameters to examine inside this archive folder."):
                 if is_port_open(5001): subprocess.run("lsof -t -i:5001 | xargs kill -9", shell=True)
                 if is_port_open(8080): subprocess.run("lsof -t -i:8080 | xargs kill -9", shell=True)
                 st.session_state.target_dir = os.path.join(history_dir, selected_backup)
@@ -258,32 +258,34 @@ st.markdown("---")
 # 🐙 GIT SNAPSHOT ENGINE
 # ==========================================
 st.header("🐙 Git Version Control Engine")
+git_target = active_dir if st.session_state.target_dir == active_dir else base_dir
 try:
-    status_check = subprocess.run(["git", "status"], cwd=active_dir, capture_output=True, text=True)
-    st.text_area("Workspace Source Ledger Status:", status_check.stdout, height=150)
+    status_check = subprocess.run(["git", "status"], cwd=git_target, capture_output=True, text=True)
+    
+    st.text_area("Workspace Source Ledger Status:", status_check.stdout, height=150, help="The output of 'git status'. Shows modified local files.")
     
     col_input, col_commit_btn, col_push_btn = st.columns([2, 1, 1])
     with col_input:
-        commit_msg = st.text_input("Describe modifications for this version snapshot:", placeholder="e.g., Integrated brand assets and layout alignment configurations")
+        commit_msg = st.text_input("Describe modifications for this version snapshot:", placeholder="e.g., Harvesting structural components from v6 layouts", help="Short note tracking what changed.")
     with col_commit_btn:
         st.write("<div style='padding-top:28px;'></div>", unsafe_allow_html=True)
-        if st.button("🔒 Commit Snapshot", use_container_width=True):
+        if st.button("🔒 Commit Snapshot", use_container_width=True, help="Secures these file variations into your encrypted local version database."):
             if not commit_msg:
                 st.warning("Please supply a descriptive version entry note.")
             else:
-                subprocess.run(["git", "add", "."], cwd=active_dir)
-                subprocess.run(["git", "commit", "-m", commit_msg], cwd=active_dir)
+                subprocess.run(["git", "add", "."], cwd=git_target)
+                res = subprocess.run(["git", "commit", "-m", commit_msg], cwd=git_target, capture_output=True, text=True)
                 st.success("Snapshot secured locally.")
                 st.rerun()
     with col_push_btn:
         st.write("<div style='padding-top:28px;'></div>", unsafe_allow_html=True)
-        if st.button("📤 Push to Cloud Repository", use_container_width=True):
+        if st.button("📤 Push to Cloud Repository", use_container_width=True, help="Synchronizes all committed variations safely with your secure GitHub repository backup."):
             with st.spinner("Syncing data links..."):
-                push_res = subprocess.run(["git", "push"], cwd=active_dir, capture_output=True, text=True)
+                push_res = subprocess.run(["git", "push"], cwd=git_target, capture_output=True, text=True)
                 if push_res.returncode == 0:
                     st.success("Synchronized with cloud repo.")
                 else:
-                    st.error("Sync failed.")
+                    st.error("Sync failed. Check remote network path configurations.")
 except Exception as e:
     st.error(f"Failed to communicate with local git module framework: {e}")
 
@@ -295,10 +297,10 @@ st.markdown("---")
 st.header("💾 Create Cold-Storage Backup Archive")
 col_arch_input, col_arch_btn = st.columns([2, 2])
 with col_arch_input:
-    desc = st.text_input("Enter a descriptive label for file storage tracking:", placeholder="e.g., post-cleanup-v8-baseline")
+    desc = st.text_input("Enter a descriptive label for file storage tracking:", placeholder="e.g., post-cleanup-v8-baseline", help="Unique tag to export a timestamped tracking archive.")
 with col_arch_btn:
     st.write("<div style='padding-top:28px;'></div>", unsafe_allow_html=True)
-    if st.button("Trigger Cold Archive Export", use_container_width=True):
+    if st.button("Trigger Cold Archive Export", use_container_width=True, help="Executes backup.sh to bundle environment architecture into cold storage files."):
         if not desc:
             st.warning("Please provide a name for this clean tracking snapshot build.")
         else:
