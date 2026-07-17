@@ -9,7 +9,7 @@ base_dir = os.path.expanduser("~/developer")
 active_dir = os.path.join(base_dir, "CascadiaEM_v8_Active")
 history_dir = os.path.join(base_dir, "HISTORICAL_BUILDS")
 token_meta_file = os.path.join(active_dir, ".token_meta")
-logo_path = os.path.join(active_dir, "logo.jpg")
+logo_path = os.path.join(active_dir, "v8_frontend", "public", "assets", "logo", "cem_logo.png")
 
 has_logo = os.path.exists(logo_path)
 
