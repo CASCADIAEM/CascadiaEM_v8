@@ -10,9 +10,28 @@ active_dir = os.path.join(base_dir, "CascadiaEM_v8_Active")
 history_dir = os.path.join(base_dir, "HISTORICAL_BUILDS")
 token_meta_file = os.path.join(active_dir, ".token_meta")
 
-# Automatic path mapping to your repository logo asset
-logo_path = os.path.join(active_dir, "v8_frontend", "public", "assets", "logo", "cem_logo.png")
-has_logo = os.path.exists(logo_path)
+# Intelligent multi-path & multi-extension logo search engine
+def find_logo():
+    possible_names = ["cem_logo", "logo", "CEM LOGO", "CEM_LOGO"]
+    extensions = [".png", ".jpg", ".jpeg", ".svg", ".PNG", ".JPG", ".JPEG"]
+    search_paths = [
+        os.path.join(active_dir, "v8_frontend", "public", "assets", "logo"),
+        os.path.join(active_dir, "v8_frontend", "public", "assets"),
+        os.path.join(active_dir, "public", "assets", "logo"),
+        os.path.join(active_dir, "public", "assets"),
+        active_dir
+    ]
+    for path in search_paths:
+        if os.path.exists(path):
+            for name in possible_names:
+                for ext in extensions:
+                    full_path = os.path.join(path, f"{name}{ext}")
+                    if os.path.exists(full_path):
+                        return full_path
+    return None
+
+logo_path = find_logo()
+has_logo = logo_path is not None
 
 # Page Setup with Brand Assets
 st.set_page_config(
@@ -255,7 +274,7 @@ if os.path.exists(history_dir):
 st.markdown("---")
 
 # ==========================================
-# 🐙 GIT SNAPSHOT ENGINE (WITH ERROR CAPTURE)
+# 🐙 GIT SNAPSHOT ENGINE (ALLOWING EMPTY COMMITS)
 # ==========================================
 st.header("🐙 Git Version Control Engine")
 try:
@@ -264,7 +283,7 @@ try:
     
     col_input, col_commit_btn, col_push_btn = st.columns([2, 1, 1])
     with col_input:
-        commit_msg = st.text_input("Describe modifications for this version snapshot:", placeholder="e.g., Uploaded high-resolution official logo asset", key="git_commit_input")
+        commit_msg = st.text_input("Describe modifications for this version snapshot:", placeholder="e.g., Logged system sync confirmation note", key="git_commit_input")
     with col_commit_btn:
         st.write("<div style='padding-top:28px;'></div>", unsafe_allow_html=True)
         if st.button("🔒 Commit Snapshot", use_container_width=True):
@@ -272,7 +291,8 @@ try:
                 st.warning("Please supply a descriptive version entry note.")
             else:
                 subprocess.run(["git", "add", "."], cwd=active_dir)
-                res = subprocess.run(["git", "commit", "-m", commit_msg], cwd=active_dir, capture_output=True, text=True)
+                # Upgraded commit argument allows saving pipeline updates even on clean directory states
+                res = subprocess.run(["git", "commit", "--allow-empty", "-m", commit_msg], cwd=active_dir, capture_output=True, text=True)
                 if res.returncode == 0:
                     st.success("Snapshot secured locally.")
                     st.rerun()
