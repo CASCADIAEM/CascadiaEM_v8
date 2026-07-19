@@ -8,7 +8,6 @@ import {
   Users,
   Kanban,
   CloudLightning,
-  Sliders,
   Anchor,
   type LucideIcon
 } from 'lucide-react';
@@ -42,7 +41,7 @@ export const EOC_MODULE_REGISTRY: ModuleDefinition[] = [
   },
   {
     id: 'ics-resources',
-    name: 'ICS Resources',
+    name: 'Resource Manager',
     icon: ShieldAlert,
     description: 'NIMS-compliant resource tracking, capability metrics, and operational arrangements.',
     component: React.lazy(() => import('../modules/ResourcesManager')),
@@ -82,7 +81,7 @@ export const EOC_MODULE_REGISTRY: ModuleDefinition[] = [
   },
   {
     id: 'logistics-facilities',
-    name: 'Logistics & Facilities',
+    name: 'Facilities Manager',
     icon: Building2,
     description: 'Manage shelters and support hubs with keyholder activation states.',
     component: React.lazy(() => import('../modules/LogisticsFacilities')),
@@ -105,16 +104,8 @@ export const EOC_MODULE_REGISTRY: ModuleDefinition[] = [
     category: 'core'
   },
   {
-    id: 'app-settings',
-    name: 'App Settings',
-    icon: Sliders,
-    description: 'Central console to customize pull-down menus, list values, and other system configuration presets.',
-    component: React.lazy(() => import('../modules/AppSettings')),
-    category: 'core'
-  },
-  {
     id: 'canoe-landing',
-    name: 'Field Alert & Safety Portal',
+    name: 'Team Alerts',
     icon: Anchor,
     description: 'Auxiliary responder portals, real-time field safety alerts, active unit assignments, and multi-branch communication matrix.',
     component: React.lazy(() => import('../modules/CanoeLanding/CanoeLandingContainer')),

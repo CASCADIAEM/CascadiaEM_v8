@@ -754,7 +754,7 @@ const TacticalTeams: React.FC = () => {
         <div>
           <h1 className="text-3xl font-black text-amber-500 tracking-wider flex items-center gap-3">
             <Users className="text-amber-500 animate-pulse" size={28} />
-            <span>TACTICAL TEAMS</span>
+            <span>TEAMS MANAGER</span>
           </h1>
           <p className="text-xs text-zinc-400 mt-1 uppercase font-mono tracking-wide leading-none">
             NIMS-compliant dynamic unit builder, real-time crew sync, and dispatching overview.

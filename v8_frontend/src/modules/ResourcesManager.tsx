@@ -538,7 +538,7 @@ const ResourcesManager: React.FC = () => {
         <div>
           <h1 className="text-3xl font-black uppercase text-zinc-100 tracking-wider flex items-center gap-3">
             <Layers className="text-amber-500" />
-            NIMS ICS Resource Directory
+            Resource Manager
           </h1>
           <p className="text-sm text-zinc-500 font-medium">
             Monitor, deploy, and calculate tactical hardware, facilities, and response teams mapping to rigid ICS standards.

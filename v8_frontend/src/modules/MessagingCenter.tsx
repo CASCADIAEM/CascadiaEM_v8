@@ -684,16 +684,18 @@ const MessagingCenter: React.FC = () => {
               {/* Row: Target Recipient Group */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-[11px] font-extrabold uppercase text-zinc-400 tracking-wider mb-1.5 block">Recipient Group</label>
+                  <div className="flex items-center justify-between mb-1.5 select-none">
+                    <label className="text-[11px] font-extrabold uppercase text-zinc-400 tracking-wider block">Recipient Group</label>
+                    <CanvaDropdownCustomizer dropdownKey="alert_recipient_groups" label="Recipient Group" />
+                  </div>
                   <select 
                     value={recipientGroup} 
                     onChange={e => setRecipientGroup(e.target.value)}
                     className="eoc-input bg-zinc-950 text-zinc-100 cursor-pointer"
                   >
-                    <option value="Primary Keyholders">Primary Keyholders</option>
-                    <option value="CERT Team Alpha">CERT Team Alpha</option>
-                    <option value="All Operational Staff">All Operational Staff</option>
-                    <option value="Tribal Council Leadership">Tribal Council Leadership</option>
+                    {(dropdowns.alert_recipient_groups || []).map(g => (
+                      <option key={g} value={g}>{g}</option>
+                    ))}
                   </select>
                 </div>
 
@@ -2186,16 +2188,18 @@ const MessagingCenter: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-extrabold uppercase text-zinc-400 tracking-wider mb-1.5 block">Target Recipient Group</label>
+                  <div className="flex items-center justify-between mb-1.5 select-none">
+                    <label className="text-[10px] font-extrabold uppercase text-zinc-400 tracking-wider block">Target Recipient Group</label>
+                    <CanvaDropdownCustomizer dropdownKey="alert_recipient_groups" label="Recipient Group" />
+                  </div>
                   <select
                     value={editRecipient}
                     onChange={e => setEditRecipient(e.target.value)}
                     className="eoc-input bg-zinc-950 text-zinc-100 cursor-pointer text-xs py-2.5"
                   >
-                    <option value="Primary Keyholders">Primary Keyholders</option>
-                    <option value="CERT Team Alpha">CERT Team Alpha</option>
-                    <option value="All Operational Staff">All Operational Staff</option>
-                    <option value="Tribal Council Leadership">Tribal Council Leadership</option>
+                    {(dropdowns.alert_recipient_groups || []).map(g => (
+                      <option key={g} value={g}>{g}</option>
+                    ))}
                   </select>
                 </div>
               </div>

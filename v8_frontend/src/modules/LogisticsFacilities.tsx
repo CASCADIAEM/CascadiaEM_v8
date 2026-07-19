@@ -519,9 +519,16 @@ const LogisticsFacilities: React.FC = () => {
     alert(`Pager Notification sent to Primary Keyholder (${contactName}):\n\n"${message}"`);
   };
 
-  // Dynamic Dropdown Lists from active dataset
-  const countiesList = Array.from(new Set(facilities.map(f => f.county))).filter(Boolean);
-  const citiesList = Array.from(new Set(facilities.map(f => f.city))).filter(Boolean);
+  // Dynamic Dropdown Lists from active dataset merged with Admin-configured values
+  const countiesList = Array.from(new Set([
+    ...(dropdowns.wa_counties || []),
+    ...facilities.map(f => f.county)
+  ])).filter(Boolean);
+
+  const citiesList = Array.from(new Set([
+    ...(dropdowns.wa_cities || []),
+    ...facilities.map(f => f.city)
+  ])).filter(Boolean);
 
   // Filter & Search Logic
   const filteredFacilities = facilities.filter(f => {
@@ -786,9 +793,12 @@ const LogisticsFacilities: React.FC = () => {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-[10px] font-extrabold text-zinc-500 uppercase tracking-wider block">
-              Filter County
-            </label>
+            <div className="flex items-center justify-between">
+              <label className="text-[10px] font-extrabold text-zinc-500 uppercase tracking-wider block">
+                Filter County
+              </label>
+              <CanvaDropdownCustomizer dropdownKey="wa_counties" label="County" />
+            </div>
             <CanvaSelect 
               value={filterCounty}
               onChange={(e) => setFilterCounty(e.target.value)}
@@ -802,9 +812,12 @@ const LogisticsFacilities: React.FC = () => {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-[10px] font-extrabold text-zinc-500 uppercase tracking-wider block">
-              Filter City
-            </label>
+            <div className="flex items-center justify-between">
+              <label className="text-[10px] font-extrabold text-zinc-500 uppercase tracking-wider block">
+                Filter City
+              </label>
+              <CanvaDropdownCustomizer dropdownKey="wa_cities" label="City" />
+            </div>
             <CanvaSelect 
               value={filterCity}
               onChange={(e) => setFilterCity(e.target.value)}

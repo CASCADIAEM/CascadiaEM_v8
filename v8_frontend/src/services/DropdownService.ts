@@ -36,6 +36,8 @@ export interface Dropdowns {
   facility_types: string[];
   wa_counties: string[];
   alert_templates: AlertTemplate[];
+  alert_recipient_groups: string[];
+  wa_cities: string[];
 }
 
 export const DEFAULT_DROPDOWNS: Dropdowns = {
@@ -159,6 +161,20 @@ export const DEFAULT_DROPDOWNS: Dropdowns = {
       body: 'This is a test broadcast for training evaluation purposes. Exercise briefing will commence at 10:00 hours at the command outpost. Report attendance metrics.',
       type: 'EMAIL'
     }
+  ],
+  alert_recipient_groups: [
+    'Primary Keyholders',
+    'CERT Team Alpha',
+    'All Operational Staff',
+    'Tribal Council Leadership'
+  ],
+  wa_cities: [
+    'Edmonds',
+    'Seattle',
+    'Everett',
+    'Tacoma',
+    'Bremerton',
+    'Lynnwood'
   ]
 };
 
@@ -285,6 +301,8 @@ class DropdownServiceManager {
           facility_types: data.facility_types || DEFAULT_DROPDOWNS.facility_types,
           wa_counties: data.wa_counties || DEFAULT_DROPDOWNS.wa_counties,
           alert_templates: data.alert_templates || DEFAULT_DROPDOWNS.alert_templates,
+          alert_recipient_groups: data.alert_recipient_groups || DEFAULT_DROPDOWNS.alert_recipient_groups,
+          wa_cities: data.wa_cities || DEFAULT_DROPDOWNS.wa_cities,
           mission_categories: data.mission_categories || (this.currentDropdowns.mission_categories.length > 0 
             ? this.currentDropdowns.mission_categories 
             : DEFAULT_DROPDOWNS.mission_categories),

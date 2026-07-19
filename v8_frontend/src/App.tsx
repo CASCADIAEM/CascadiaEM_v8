@@ -24,8 +24,6 @@ import {
   MessageSquare,
   Users,
   Kanban,
-  CheckSquare,
-  Sliders,
   Anchor
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -92,6 +90,14 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
             moduleId: 'tactical-teams',
             icon: Users,
             description: 'NIMS unit assembly & staging'
+          },
+          {
+            id: 'logistics-facilities-node',
+            name: 'FACILITIES MANAGER',
+            type: 'module',
+            moduleId: 'logistics-facilities',
+            icon: Building2,
+            description: 'Manage shelters & support hubs'
           }
         ]
       }
@@ -108,14 +114,6 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
         type: 'folder',
         children: [
           {
-            id: 'messaging-center-node',
-            name: 'MESSAGE CENTER',
-            type: 'module',
-            moduleId: 'messaging-center',
-            icon: MessageSquare,
-            description: 'Ad-hoc SMS & emergency pager'
-          },
-          {
             id: 'active-incident-node',
             name: 'ACTIVE TRACKER',
             type: 'module',
@@ -126,12 +124,27 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
         ]
       },
       {
-        id: 'canoe-landing-node',
-        name: 'FIELD ALERT & SAFETY PORTAL',
-        type: 'module',
-        moduleId: 'canoe-landing',
-        icon: Anchor,
-        description: 'Auxiliary field safety and communication portal'
+        id: 'alert-notification-folder',
+        name: 'ALERT & NOTIFICATION',
+        type: 'folder',
+        children: [
+          {
+            id: 'messaging-center-node',
+            name: 'MESSAGE CENTER',
+            type: 'module',
+            moduleId: 'messaging-center',
+            icon: MessageSquare,
+            description: 'Ad-hoc SMS & emergency pager'
+          },
+          {
+            id: 'canoe-landing-node',
+            name: 'TEAM ALERTS',
+            type: 'module',
+            moduleId: 'canoe-landing',
+            icon: Anchor,
+            description: 'Auxiliary field safety and communication portal'
+          }
+        ]
       },
       {
         id: 'operations-folder',
@@ -164,29 +177,6 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
     type: 'step',
     children: [
       {
-        id: 'logistics-facilities-node',
-        name: 'LOGISTICS & FACILITIES',
-        type: 'module',
-        moduleId: 'logistics-facilities',
-        icon: Building2,
-        description: 'Manage shelters & support hubs'
-      },
-      {
-        id: 'planning-preview',
-        name: 'PLANNING & SAFETY',
-        type: 'module',
-        icon: Shield,
-        description: 'Long-term mitigation plans'
-      },
-      {
-        id: 'app-settings-node',
-        name: 'APP SETTINGS',
-        type: 'module',
-        moduleId: 'app-settings',
-        icon: Sliders,
-        description: 'Customize pulldown menus and system configuration'
-      },
-      {
         id: 'about-preview',
         name: 'EOC SYSTEM NOTES',
         type: 'module',
@@ -211,7 +201,7 @@ const App: React.FC = () => {
   
   // Active/Configured Modules
   const [activeModuleIds, setActiveModuleIds] = useState<string[]>([
-    'mission-builder', 'active-incident', 'dashboard', 'contact-manager', 'logistics-facilities', 'messaging-center', 'tactical-teams', 'tactical-matrix', 'ics-resources', 'app-settings', 'canoe-landing'
+    'mission-builder', 'active-incident', 'dashboard', 'contact-manager', 'logistics-facilities', 'messaging-center', 'tactical-teams', 'tactical-matrix', 'ics-resources', 'canoe-landing', 'weather-hazards'
   ]);
   const [activeModule, setActiveModule] = useState<ModuleDefinition | null>(null);
   const [systemTime, setSystemTime] = useState<string>('');
@@ -265,6 +255,7 @@ const App: React.FC = () => {
     'step-2': true,
     'iap-folder': false,
     'watch-center-folder': false,
+    'alert-notification-folder': false,
     'operations-folder': false,
     'event-management-folder': false,
     'step-3': true
@@ -413,14 +404,11 @@ const App: React.FC = () => {
     if (node.type === 'step') {
       const visibleChildren = node.children?.filter(isNodeVisible) || [];
       return (
-        <div key={node.id} className="mt-4 mb-1.5 first:mt-0">
-          <div className="px-2.5 py-2.5 bg-zinc-900/35 border border-zinc-900/80 rounded-lg flex items-center justify-between shadow-sm select-none">
-            <span className="text-[11.5px] font-black text-amber-500 tracking-wider font-mono">
-              {node.name}
-            </span>
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
-          </div>
-          <div className="mt-1 space-y-0.5">
+        <div key={node.id} className="mt-1 mb-1 first:mt-0">
+          {index > 0 && (
+            <div className="h-px bg-zinc-800/50 my-4 mx-2" />
+          )}
+          <div className="space-y-0.5">
             {visibleChildren.map((child, idx) => 
               renderNode(child, 1, idx, visibleChildren.length, [])
             )}
@@ -445,12 +433,12 @@ const App: React.FC = () => {
             
             <div className="flex items-center gap-1.5 text-zinc-400 group-hover:text-zinc-200">
               {isExpanded ? (
-                <ChevronDown size={13} className="text-zinc-500 group-hover:text-zinc-300 transition-transform duration-100" />
+                <ChevronDown size={14} className="text-zinc-500 group-hover:text-zinc-300 transition-transform duration-100" />
               ) : (
-                <ChevronRight size={13} className="text-zinc-500 group-hover:text-zinc-300 transition-transform duration-100" />
+                <ChevronRight size={14} className="text-zinc-500 group-hover:text-zinc-300 transition-transform duration-100" />
               )}
-              <FolderIcon size={15} className="text-amber-500/60 group-hover:text-amber-500 transition-colors" />
-              <span className="text-[13px] font-black tracking-wider uppercase truncate">
+              <FolderIcon size={16} className="text-amber-500/60 group-hover:text-amber-500 transition-colors" />
+              <span className="text-[14px] font-black tracking-wider uppercase truncate">
                 {node.name}
               </span>
             </div>
@@ -492,10 +480,10 @@ const App: React.FC = () => {
 
           <div className="flex items-center gap-1.5 pl-2 truncate w-full">
             <LeafIcon 
-              size={14} 
+              size={15} 
               className={isCurrent ? 'text-amber-500' : 'text-zinc-600 group-hover:text-zinc-400 transition-colors'} 
             />
-            <span className="text-[12px] font-bold tracking-wide uppercase truncate">
+            <span className="text-[13px] font-bold tracking-wide uppercase truncate">
               {node.name}
             </span>
             {!isRealModule && (
@@ -1000,8 +988,6 @@ const CanvaPreviewDrawer: React.FC<CanvaPreviewDrawerProps> = ({ node, onClose }
 // ---------------------------------------------------------
 const DrawerRenderer: React.FC<{ nodeId: string }> = ({ nodeId }) => {
   switch (nodeId) {
-    case 'planning-preview':
-      return <PlanningPreview />;
     case 'about-preview':
       return <AboutPreview />;
     default:
@@ -1015,96 +1001,6 @@ const DrawerRenderer: React.FC<{ nodeId: string }> = ({ nodeId }) => {
         </div>
       );
   }
-};
-
-
-
-// =================================-------------------------
-// 9. PLANNING & SAFETY PREVIEW (Interactive safety officer log)
-// =================================-------------------------
-const PlanningPreview: React.FC = () => {
-  const [checklist, setChecklist] = useState([
-    { id: 1, text: 'Check Backup Generators Fuel Cache', completed: true },
-    { id: 2, text: 'Audit Mobile Satcom Terminal Rigs', completed: false },
-    { id: 3, text: 'Confirm Potable Water Supply Reserves', completed: true },
-    { id: 4, text: 'Establish Zone Emergency Evacuation Maps', completed: false },
-    { id: 5, text: 'Audit Division PPE Staging Cabinets', completed: false }
-  ]);
-
-  const handleCheck = (id: number) => {
-    setChecklist(checklist.map(item => {
-      if (item.id === id) {
-        return { ...item, completed: !item.completed };
-      }
-      return item;
-    }));
-  };
-
-  const completedCount = checklist.filter(item => item.completed).length;
-  const pct = Math.round((completedCount / checklist.length) * 100);
-
-  return (
-    <div className="space-y-6">
-      {/* Live progress circle/bar */}
-      <CanvaGlassPanel className="p-5 space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="text-left">
-            <h5 className="text-[10px] font-mono font-black text-amber-500 uppercase tracking-widest">SAFETY MITIGATION RATIO</h5>
-            <div className="text-lg font-black text-zinc-100 uppercase tracking-wide mt-0.5">Safety Officer Dashboard</div>
-          </div>
-          <div className="text-right">
-            <span className="text-xl font-mono font-black text-amber-500">{pct}%</span>
-          </div>
-        </div>
-
-        {/* CSS progress track */}
-        <div className="h-2 w-full bg-zinc-950 border border-zinc-900 rounded-full overflow-hidden">
-          <div 
-            className="h-full bg-amber-500 rounded-full transition-all duration-300 shadow-[0_0_10px_rgba(245,158,11,0.5)]" 
-            style={{ width: `${pct}%` }}
-          />
-        </div>
-      </CanvaGlassPanel>
-
-      {/* Safety List */}
-      <CanvaGlassPanel className="p-5 space-y-4">
-        <h4 className="text-xs font-black uppercase text-zinc-300 tracking-wider">Incident Safety Officer Log</h4>
-
-        <div className="space-y-2.5">
-          {checklist.map((item) => (
-            <div 
-              key={item.id}
-              onClick={() => handleCheck(item.id)}
-              className="p-3.5 bg-zinc-950 hover:bg-zinc-900/40 border border-zinc-900 rounded-xl flex items-center justify-between cursor-pointer transition-all select-none group"
-            >
-              <div className="flex items-center gap-3">
-                <div className={`h-4.5 w-4.5 border rounded flex items-center justify-center transition-all ${
-                  item.completed 
-                    ? 'bg-amber-500 border-amber-500 text-black' 
-                    : 'border-zinc-800 bg-black group-hover:border-zinc-600'
-                }`}>
-                  {item.completed && <CheckSquare size={12} strokeWidth={3} />}
-                </div>
-                <span className={`text-xs uppercase font-extrabold transition-all ${
-                  item.completed ? 'text-zinc-500 line-through' : 'text-zinc-300 group-hover:text-zinc-100'
-                }`}>
-                  {item.text}
-                </span>
-              </div>
-
-              <span className={`text-[8px] font-mono font-black px-1.5 py-0.5 rounded tracking-widest uppercase border ${
-                item.completed 
-                  ? 'bg-green-500/5 border-green-500/20 text-green-400' 
-                  : 'bg-zinc-900 border-zinc-800 text-zinc-600'
-              }`}>
-                {item.completed ? 'COMPLETED' : 'PENDING'}
-              </span>
-            </div>
-          ))}
-        </div>
-      </CanvaGlassPanel>
-    </div>
-  );
 };
 
 // =================================-------------------------
