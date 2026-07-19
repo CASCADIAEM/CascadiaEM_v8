@@ -32,7 +32,8 @@ import {
   CheckSquare,
   Plus,
   AlertTriangle,
-  Sliders
+  Sliders,
+  Anchor
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -153,6 +154,14 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
             moduleId: 'active-incident',
             icon: Shield,
             description: 'Track active EOC missions'
+          },
+          {
+            id: 'canoe-landing-node',
+            name: 'CANOE SAFETY COCKPIT',
+            type: 'module',
+            moduleId: 'canoe-landing',
+            icon: Anchor,
+            description: 'Canoe landing safety coordination'
           }
         ]
       },
@@ -281,7 +290,7 @@ const App: React.FC = () => {
   
   // Active/Configured Modules
   const [activeModuleIds, setActiveModuleIds] = useState<string[]>([
-    'mission-builder', 'active-incident', 'dashboard', 'contact-manager', 'logistics-facilities', 'messaging-center', 'tactical-teams', 'tactical-matrix', 'ics-resources', 'app-settings'
+    'mission-builder', 'active-incident', 'dashboard', 'contact-manager', 'logistics-facilities', 'messaging-center', 'tactical-teams', 'tactical-matrix', 'ics-resources', 'app-settings', 'canoe-landing'
   ]);
   const [activeModule, setActiveModule] = useState<ModuleDefinition | null>(null);
   const [systemTime, setSystemTime] = useState<string>('');
@@ -323,6 +332,18 @@ const App: React.FC = () => {
   useEffect(() => {
     const activeRegistry = EOC_MODULE_REGISTRY.filter(m => activeModuleIds.includes(m.id));
     if (activeRegistry.length > 0) {
+      const params = new URLSearchParams(window.location.search);
+      const isIC = params.get('ic') === 'true';
+      const isCanoe = params.get('module') === 'canoe-landing';
+
+      if (isIC || isCanoe) {
+        const canoe = activeRegistry.find(m => m.id === 'canoe-landing');
+        if (canoe) {
+          setActiveModule(canoe);
+          return;
+        }
+      }
+
       if (!activeModule || !activeModuleIds.includes(activeModule.id)) {
         // Default to Dashboard or first active module
         const dash = activeRegistry.find(m => m.id === 'dashboard');
@@ -557,9 +578,9 @@ const App: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-[#09090b]/98 z-50 overflow-y-auto flex items-center justify-center p-4"
+            className="fixed inset-0 bg-[#09090b]/98 z-50 overflow-y-auto flex justify-center p-4 sm:p-8"
           >
-            <div className="w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-3xl p-8 space-y-8 shadow-[0_0_80px_rgba(0,0,0,0.8)] relative overflow-hidden">
+            <div className="w-full max-w-2xl bg-zinc-950 border border-zinc-800 rounded-3xl p-8 space-y-8 shadow-[0_0_80px_rgba(0,0,0,0.8)] relative overflow-hidden my-auto">
               
               {/* Header */}
               <div className="space-y-2 text-center border-b border-zinc-900 pb-5">

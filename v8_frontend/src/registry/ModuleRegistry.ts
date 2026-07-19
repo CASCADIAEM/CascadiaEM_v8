@@ -9,6 +9,7 @@ import {
   Kanban,
   CloudLightning,
   Sliders,
+  Anchor,
   type LucideIcon
 } from 'lucide-react';
 import React from 'react';
@@ -110,5 +111,13 @@ export const EOC_MODULE_REGISTRY: ModuleDefinition[] = [
     description: 'Central console to customize pull-down menus, list values, and other system configuration presets.',
     component: React.lazy(() => import('../modules/AppSettings')),
     category: 'core'
+  },
+  {
+    id: 'canoe-landing',
+    name: 'Canoe Safety Suite',
+    icon: Anchor,
+    description: 'Real-time Canoe Landing Safety Suite with 3-tier mobile portals, legal gating, and audio alerts.',
+    component: React.lazy(() => import('../modules/CanoeLanding/CanoeLandingContainer')),
+    category: 'tactical'
   }
 ];

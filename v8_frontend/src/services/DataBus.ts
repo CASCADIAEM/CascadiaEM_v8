@@ -210,13 +210,17 @@ class DataBus {
                            (fullPacket.type === 'SYSTEM' && fullPacket.payload?.entity);
 
     if (!isSystemSignal) {
-      setDoc(doc(db, 'activity_log', fullPacket.id), fullPacket)
-        .then(() => {
-          console.log(`✅ [SUCCESS]: Telemetry log ${fullPacket.id} persisted to Firestore Immutable Ledger.`);
-        })
-        .catch((err) => {
-          console.error(`🚨 [CRITICAL]: Failed to persist telemetry log ${fullPacket.id} to Firestore:`, err);
-        });
+      try {
+        setDoc(doc(db, 'activity_log', fullPacket.id), fullPacket)
+          .then(() => {
+            console.log(`✅ [SUCCESS]: Telemetry log ${fullPacket.id} persisted to Firestore Immutable Ledger.`);
+          })
+          .catch((err) => {
+            console.error(`🚨 [CRITICAL]: Failed to persist telemetry log ${fullPacket.id} to Firestore:`, err);
+          });
+      } catch (err) {
+        console.error(`🚨 [CRITICAL Synchronous]: Failed to write log to Firestore:`, err);
+      }
     }
 
     this.subscribers.forEach((subscriber) => {

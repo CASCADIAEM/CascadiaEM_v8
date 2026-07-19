@@ -25,6 +25,8 @@ Do not look for older directories, propose deprecated port mappings, change hist
 *   **Active Frontend Engine:** Locked exclusively to Port `8080` (React/Vite compilation layer).
 *   **Active Backend Engine:** Locked exclusively to Port `5001` (Python/API boundary script).
 *   **Port 5000 Prohibition:** Never reference, configure, or point code updates to port `5000`. It is deprecated.
+*   **Firebase Local Emulator Suite Mandatory Routing:** All application code managing Firestore, Cloud Functions, or Authentication must explicitly point to local host emulators (`localhost`) during this development session. 
+*   **Live Cloud API Prohibition:** Absolutely no code may initiate live calls to Google Cloud Vertex AI (`aiplatform`), Generative Language API (`generativelanguage`), or Vision AI (`visionai`). Treat these services as fully decommissioned in the code layer.
 
 ---
 
@@ -56,6 +58,28 @@ To prevent massive context bloat, slow processing, and token exhaustion, all cod
 
 ### Zero-Drift Rule
 *   Do not suggest restructuring active database contracts, file paths, or core global routing modules unless explicitly instructed. Code must adapt to the existing lean template rather than inflating it with boilerplate abstractions.
+
+---
+
+## ☁️ 6. Firebase Emulator & Cloud Function Boundaries
+
+### Strict Local Environment Execution
+*   **Zero Live Provisioning:** You are strictly forbidden from executing `gcloud` or `firebase deploy` commands. All database schemas and backend logic must be evaluated exclusively inside the Firebase Local Emulator Suite.
+*   **No Automated Asset Generation:** Do not write scripts or code blocks that attempt to programmatically spin up live Google Cloud Storage buckets, Cloud SQL instances, or external webhooks.
+
+### Firestore Query & Index Compliance
+*   **Composite Index Awareness:** When writing or modifying Firestore queries inside `v8_backend` or Cloud Functions, ensure they do not trigger `FAILED_PRECONDITION` index errors. If a query requires a composite index, you must explicitly document the required fields in a comment block rather than allowing the function to execute in a failing loop.
+*   **Cloud Function Execution Safeguards:** Any background cron or data purge scripts (such as `scheduledDataPurge`) must include strict runtime timeouts and execution limits to prevent infinite container scaling and processing waste.
+
+---
+
+## 🎛️ 7. Dashboard & Automation Script Preservation
+
+### Master Control Suite Immunity
+*   **File Isolation:** The master control panel file (`dashboard.py`) and the historical cold-storage script (`backup.sh`) are **read-only** for this session. Do not alter, refactor, or optimize these files unless explicitly commanded by the user.
+*   **Process Management Rules:** Do not change the programmatic process termination logic (e.g., `lsof -t -i:8080 | xargs kill -9`) utilized by the dashboard to manage environment deadlocks.
+*   **Metadata Integrity:** Never delete, modify, or corrupt the `.token_meta` file or alter the 90-day GitHub token tracking metrics rendered on the system status matrix.
+*   **Node Modules Exclusion:** Maintain the exclusion rules inside `backup.sh`. When historical archives are compiled, `node_modules` must always be completely purged from both the frontend and backend layers to keep storage contexts light and token-free.
 
 ---
 
