@@ -346,9 +346,21 @@ class DropdownServiceManager {
   }
 
   public async saveDropdowns(newDropdowns: Dropdowns): Promise<void> {
+    // 1. Instantly update local memory cache & broadcast to React subscribers
+    this.currentDropdowns = newDropdowns;
+    this.broadcast();
+
+    // 2. Attempt to publish to Firestore with a 2-second timeout to prevent hanging in offline environments
     const dropdownDocRef = doc(db, 'app_settings', 'dropdowns');
-    await setDoc(dropdownDocRef, newDropdowns);
-    console.log('✅ [SUCCESS]: Pulldown menu customizer settings successfully saved to Firestore.');
+    try {
+      await Promise.race([
+        setDoc(dropdownDocRef, newDropdowns),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore write timeout')), 2000))
+      ]);
+      console.log('✅ [SUCCESS]: Pulldown menu customizer settings successfully saved to Firestore.');
+    } catch (err) {
+      console.warn('⚠️ [OFFLINE FALLBACK]: Firestore write timed out or offline. Cached locally in memory:', err);
+    }
   }
 }
 

@@ -472,7 +472,7 @@ export default function WeatherHazards() {
         <div>
           <h1 className="text-xl font-black uppercase text-zinc-100 tracking-wider flex items-center gap-2">
             <CloudLightning className="text-amber-500 animate-pulse" size={20} />
-            Meteorological & Environmental Hazards
+            WEATHER FORECAST
           </h1>
           <p className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-widest mt-1">
             Sovereign EOC Tactical Observation & Emergency Alert Core · v7.2.1

@@ -24,7 +24,8 @@ import {
   MessageSquare,
   Users,
   Kanban,
-  Anchor
+  Anchor,
+  CloudLightning
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -147,6 +148,21 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
         ]
       },
       {
+        id: 'weather-hazards-folder',
+        name: 'WEATHER & HAZARDS',
+        type: 'folder',
+        children: [
+          {
+            id: 'weather-hazards-node',
+            name: 'WEATHER FORECAST',
+            type: 'module',
+            moduleId: 'weather-hazards',
+            icon: CloudLightning,
+            description: 'Meteorological & environmental hazard observations'
+          }
+        ]
+      },
+      {
         id: 'operations-folder',
         name: 'OPERATIONS',
         type: 'folder',
@@ -256,6 +272,7 @@ const App: React.FC = () => {
     'iap-folder': false,
     'watch-center-folder': false,
     'alert-notification-folder': false,
+    'weather-hazards-folder': true,
     'operations-folder': false,
     'event-management-folder': false,
     'step-3': true

@@ -97,7 +97,7 @@ export const EOC_MODULE_REGISTRY: ModuleDefinition[] = [
   },
   {
     id: 'weather-hazards',
-    name: 'Weather & Hazards',
+    name: 'Weather Forecast',
     icon: CloudLightning,
     description: 'Manage severe weather forecasts, NWS alerts, Level 1-3 evacuation zones, PBS WARN broadcasts, and animated radar overlays.',
     component: React.lazy(() => import('../modules/WeatherHazards')),
