@@ -140,89 +140,91 @@ export const ResponderPortal: React.FC<ResponderPortalProps> = ({ name, phone, r
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col p-4 select-none font-sans">
+    <div className="min-h-screen bg-black text-zinc-100 flex flex-col p-5 select-none font-sans gap-5">
       {/* Device bar */}
-      <div className="flex flex-col gap-2 mb-4 border-b border-zinc-900 pb-3">
+      <div className="flex flex-col gap-3 border-b-2 border-zinc-950 pb-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <Activity className="h-4 w-4 text-amber-500 animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">
+          <div className="flex items-center gap-2">
+            <Activity className="h-5 w-5 text-amber-500 animate-pulse" />
+            <span className="text-xs md:text-sm font-black uppercase tracking-widest text-zinc-300">
               RESPONDER PORTAL - TIER II
             </span>
           </div>
-          <span className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest">
+          <span className="text-xs font-black text-zinc-400 uppercase tracking-widest border border-zinc-800 px-2 py-0.5 rounded bg-zinc-900">
             {me.role.toUpperCase()} SUPPORT
           </span>
         </div>
         {/* At-a-glance Registration display */}
-        <div className="bg-zinc-900 border border-zinc-800 p-2.5 rounded-lg flex items-center justify-between">
-          <span className="text-zinc-500 text-[10px] font-black uppercase tracking-wider">ACTIVE FIELD UNIT</span>
-          <span className="text-amber-500 font-black text-sm uppercase tracking-wide font-mono">{me.name}</span>
+        <div className="bg-zinc-950 border-2 border-zinc-900 p-4 rounded-xl flex items-center justify-between">
+          <span className="text-zinc-400 text-xs md:text-sm font-black uppercase tracking-wider">ACTIVE FIELD UNIT</span>
+          <span className="text-amber-400 font-black text-lg md:text-2xl uppercase tracking-widest font-mono">{me.name}</span>
         </div>
       </div>
 
-      {/* Global Command Broadcast Alert Banner */}
+      {/* Global Command Broadcast Alert Banner - MAX LEGIBILITY FOR TABLET */}
       {globalAlert.severity !== 'none' && (
-        <div className={`mb-3 p-3 rounded-lg border flex items-start gap-2.5 ${
+        <div className={`p-5 md:p-8 rounded-2xl border-4 flex items-start gap-4 shadow-xl ${
           globalAlert.severity === 'red' 
-            ? 'bg-red-950/40 border-red-800 text-red-200 animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.15)]' 
-            : 'bg-amber-950/25 border-amber-800/60 text-amber-200'
+            ? 'bg-red-950/60 border-red-500 text-red-100 animate-pulse shadow-[0_0_30px_rgba(239,68,68,0.25)]' 
+            : 'bg-amber-950/50 border-amber-500 text-amber-100'
         }`}>
-          <div className="flex-shrink-0 mt-0.5">
-            <AlertTriangle className={`h-4 w-4 ${globalAlert.severity === 'red' ? 'text-red-400' : 'text-amber-400'}`} />
+          <div className="flex-shrink-0 mt-1">
+            <AlertTriangle className={`h-8 w-8 md:h-12 md:w-12 ${globalAlert.severity === 'red' ? 'text-red-400' : 'text-amber-400 animate-bounce'}`} />
           </div>
-          <div className="flex-1 font-mono text-[10px] leading-relaxed">
-            <span className="font-black uppercase tracking-widest block text-[8px] opacity-75 mb-0.5">
+          <div className="flex-1 leading-relaxed">
+            <span className="font-black uppercase tracking-widest block text-xs md:text-base opacity-90 mb-1.5">
               {globalAlert.severity === 'red' ? '🚨 CRITICAL COMMAND BROADCAST' : '⚠️ COMMAND FIELD ADVISORY'}
             </span>
-            {globalAlert.message}
+            <span className="text-base md:text-2xl font-black font-mono block">
+              {globalAlert.message}
+            </span>
           </div>
         </div>
       )}
 
       {/* Standby view vs Dispatch view */}
       {!activeIncident ? (
-        <div className="flex-1 flex flex-col items-center justify-center text-center gap-4">
-          <Shield className="h-20 w-20 text-emerald-500/85 animate-pulse" />
-          <div>
-            <h2 className="text-xl font-black text-emerald-400 uppercase tracking-widest">
+        <div className="flex-1 flex flex-col items-center justify-center text-center gap-6 py-12">
+          <Shield className="h-28 w-28 md:h-36 md:w-36 text-emerald-400/90 animate-pulse" />
+          <div className="space-y-2">
+            <h2 className="text-2xl md:text-3xl font-black text-emerald-400 uppercase tracking-widest">
               STANDBY IN FIELD
             </h2>
-            <p className="text-zinc-500 text-xs mt-1 max-w-xs font-mono leading-relaxed">
+            <p className="text-zinc-400 text-sm md:text-lg max-w-sm font-mono leading-relaxed mx-auto">
               Monitoring active frequencies. Keep browser open. You will be alerted when a rescue or incident is dispatched to you.
             </p>
           </div>
         </div>
       ) : (
-        <div className="flex-1 flex flex-col gap-4">
+        <div className="flex-1 flex flex-col gap-6">
           {/* Dispatch Alert Box */}
-          <CanvaGlassPanel highlight="red-heavy" bannerText="🚨 COMMAND INCIDENT DISPATCH" className="p-4">
-            <div className="flex items-center gap-2 mb-2">
-              <Bell className="h-5 w-5 text-red-500 animate-bounce" />
-              <h2 className="text-red-400 text-sm font-black uppercase tracking-widest">
+          <CanvaGlassPanel highlight="red-heavy" bannerText="🚨 COMMAND INCIDENT DISPATCH" className="p-6 border-2 border-red-500/80 rounded-2xl">
+            <div className="flex items-center gap-3 mb-3">
+              <Bell className="h-6 w-6 md:h-8 md:w-8 text-red-500 animate-bounce" />
+              <h2 className="text-red-400 text-lg md:text-2xl font-black uppercase tracking-widest">
                 {activeIncident.title}
               </h2>
             </div>
-            <p className="text-zinc-200 text-xs font-mono leading-relaxed bg-zinc-950 border border-zinc-800 p-2.5 rounded-lg mb-1">
+            <p className="text-white text-base md:text-xl font-black font-mono leading-relaxed bg-black border-2 border-zinc-900 p-4 md:p-6 rounded-xl mb-1">
               {activeIncident.description}
             </p>
           </CanvaGlassPanel>
 
-          {/* Dynamic Three-Tap Actions Flow */}
-          <div className="flex-1 flex flex-col justify-end gap-3.5 pb-4">
+          {/* Dynamic Three-Tap Actions Flow - OVERSIZED TARGETS */}
+          <div className="flex-1 flex flex-col justify-end gap-5 pb-6">
             {!showClearNotesBox ? (
               <>
                 {/* Step 1: Acknowledge */}
                 <CanvaButton
                   onClick={handleAcknowledge}
                   disabled={me.status !== 'STANDBY'}
-                  className={`w-full py-4 text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 rounded-lg transition-all active:scale-95 ${
+                  className={`w-full py-5 md:py-7 text-sm md:text-lg font-black uppercase tracking-wider flex items-center justify-center gap-3 rounded-xl transition-all active:scale-95 border-2 ${
                     me.status === 'STANDBY'
-                      ? 'bg-amber-500 text-zinc-950 border-transparent hover:bg-amber-400 shadow-md'
-                      : 'bg-zinc-900 border-zinc-800/80 text-zinc-500 cursor-not-allowed'
+                      ? 'bg-amber-500 text-zinc-950 border-transparent hover:bg-amber-400 shadow-lg'
+                      : 'bg-zinc-950 border-zinc-900 text-zinc-600 cursor-not-allowed'
                   }`}
                 >
-                  <CheckCircle className="h-4 w-4" />
+                  <CheckCircle className="h-5 w-5 md:h-7 md:w-7" />
                   1. Confirm Dispatch Acknowledge
                 </CanvaButton>
 
@@ -230,13 +232,13 @@ export const ResponderPortal: React.FC<ResponderPortalProps> = ({ name, phone, r
                 <CanvaButton
                   onClick={handlePatientContact}
                   disabled={me.status !== 'ACKNOWLEDGED'}
-                  className={`w-full py-4 text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 rounded-lg transition-all active:scale-95 ${
+                  className={`w-full py-5 md:py-7 text-sm md:text-lg font-black uppercase tracking-wider flex items-center justify-center gap-3 rounded-xl transition-all active:scale-95 border-2 ${
                     me.status === 'ACKNOWLEDGED'
-                      ? 'bg-sky-500 text-zinc-950 border-transparent hover:bg-sky-400 shadow-md'
-                      : 'bg-zinc-900 border-zinc-800/80 text-zinc-500 cursor-not-allowed'
+                      ? 'bg-sky-500 text-zinc-950 border-transparent hover:bg-sky-400 shadow-lg'
+                      : 'bg-zinc-950 border-zinc-900 text-zinc-600 cursor-not-allowed'
                   }`}
                 >
-                  <Activity className="h-4 w-4" />
+                  <Activity className="h-5 w-5 md:h-7 md:w-7" />
                   2. Log Patient Contact
                 </CanvaButton>
 
@@ -244,32 +246,32 @@ export const ResponderPortal: React.FC<ResponderPortalProps> = ({ name, phone, r
                 <CanvaButton
                   onClick={handleClearRelease}
                   disabled={me.status !== 'PATIENT_CONTACT'}
-                  className={`w-full py-4 text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 rounded-lg transition-all active:scale-95 ${
+                  className={`w-full py-5 md:py-7 text-sm md:text-lg font-black uppercase tracking-wider flex items-center justify-center gap-3 rounded-xl transition-all active:scale-95 border-2 ${
                     me.status === 'PATIENT_CONTACT'
-                      ? 'bg-emerald-600 text-zinc-950 border-transparent hover:bg-emerald-500 shadow-md'
-                      : 'bg-zinc-900 border-zinc-800/80 text-zinc-500 cursor-not-allowed'
+                      ? 'bg-emerald-500 text-zinc-950 border-transparent hover:bg-emerald-400 shadow-lg'
+                      : 'bg-zinc-950 border-zinc-900 text-zinc-600 cursor-not-allowed'
                   }`}
                 >
-                  <FileText className="h-4 w-4" />
+                  <FileText className="h-5 w-5 md:h-7 md:w-7" />
                   3. Log Release & Clear Scene
                 </CanvaButton>
               </>
             ) : (
               /* Clearance Notes Overlay screen */
-              <CanvaGlassPanel className="p-4 border-emerald-500/40 bg-zinc-900/90 flex flex-col gap-3 rounded-lg">
-                <span className="text-emerald-400 text-xs font-black uppercase tracking-widest block text-center">
+              <CanvaGlassPanel className="p-6 border-2 border-emerald-500 bg-zinc-950 flex flex-col gap-4 rounded-2xl shadow-2xl">
+                <span className="text-emerald-400 text-sm md:text-lg font-black uppercase tracking-widest block text-center">
                   Incident Release Narrative
                 </span>
-                <CanvaTextarea
+                <textarea
                   placeholder="Enter quick notes (e.g., Dehydration, administered fluids, cleared by medic)"
                   value={clearingNotes}
                   onChange={(e) => setClearingNotes(e.target.value)}
-                  rows={3}
-                  className="w-full text-xs p-2.5 bg-zinc-950 border border-zinc-850 focus:border-emerald-500 text-zinc-100 rounded focus:outline-none"
+                  rows={4}
+                  className="w-full text-base md:text-lg font-semibold p-4 bg-black border-2 border-zinc-900 focus:border-emerald-500 text-zinc-100 rounded-xl focus:outline-none placeholder-zinc-600"
                 />
                 <CanvaButton
                   onClick={handleFinalSubmitClear}
-                  className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-zinc-950 font-black text-xs uppercase tracking-wider rounded-lg transition-all active:scale-95"
+                  className="w-full py-5 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-black text-sm md:text-base uppercase tracking-widest rounded-xl transition-all active:scale-95 shadow-lg"
                 >
                   Submit Notes & Return to Standby
                 </CanvaButton>

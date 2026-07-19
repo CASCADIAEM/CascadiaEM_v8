@@ -91,52 +91,52 @@ export const ParticipantPortal: React.FC<ParticipantPortalProps> = ({ name, phon
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col p-4 font-sans select-none">
+    <div className="min-h-screen bg-black text-zinc-100 flex flex-col p-5 font-sans select-none gap-4">
       {/* Device Info top-bar */}
-      <div className="flex flex-col gap-2 mb-4 border-b border-zinc-900 pb-3">
+      <div className="flex flex-col gap-3 border-b-2 border-zinc-900 pb-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <Activity className="h-4 w-4 text-emerald-500 animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">
+          <div className="flex items-center gap-2">
+            <Activity className="h-5 w-5 text-emerald-400 animate-pulse" />
+            <span className="text-xs md:text-sm font-black uppercase tracking-widest text-zinc-300">
               CEM-SAFE CONNECTED
             </span>
           </div>
-          <span className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest">
+          <span className="text-xs font-black text-zinc-400 uppercase tracking-widest border border-zinc-800 px-2 py-0.5 rounded bg-zinc-900">
             TIER I PARTICIPANT
           </span>
         </div>
         {/* At-a-glance Registration display */}
-        <div className="bg-zinc-900 border border-zinc-800 p-2.5 rounded-lg flex items-center justify-between">
-          <span className="text-zinc-500 text-[10px] font-black uppercase tracking-wider">ON-BOARD CALL SIGN</span>
-          <span className="text-amber-500 font-black text-sm uppercase tracking-wide font-mono">{name}</span>
+        <div className="bg-zinc-950 border-2 border-zinc-900 p-4 rounded-xl flex items-center justify-between">
+          <span className="text-zinc-400 text-xs md:text-sm font-black uppercase tracking-wider">ON-BOARD CALL SIGN</span>
+          <span className="text-amber-400 font-black text-lg md:text-2xl uppercase tracking-widest font-mono">{name}</span>
         </div>
       </div>
 
       {/* Main Status Panel */}
-      <CanvaGlassPanel highlight={cardHighlight} bannerText={bannerText} className="mb-4 p-5 flex flex-col items-center justify-center gap-4 text-center">
-        <Icon className={`h-16 w-16 ${statusColor}`} />
-        <div>
-          <h2 className={`text-lg font-black uppercase tracking-wider ${statusColor}`}>
+      <CanvaGlassPanel highlight={cardHighlight} bannerText={bannerText} className="p-6 md:p-8 flex flex-col items-center justify-center gap-6 text-center border-2 rounded-2xl">
+        <Icon className={`h-24 w-24 md:h-32 md:w-32 ${statusColor}`} />
+        <div className="w-full">
+          <h2 className={`text-xl md:text-3xl font-black uppercase tracking-widest ${statusColor} mb-2`}>
             {globalAlert.severity === 'none' ? 'NORMAL ENVIRONMENT' : globalAlert.severity.toUpperCase() + ' BROADCAST'}
           </h2>
-          <p className="text-zinc-200 text-sm font-semibold mt-1 max-w-sm font-mono leading-relaxed bg-zinc-950/40 border border-zinc-800/40 p-3 rounded-lg">
+          <p className="text-white text-base md:text-2xl font-black font-mono leading-relaxed bg-black border-2 border-zinc-900 p-5 rounded-xl max-w-xl mx-auto shadow-md">
             {globalAlert.message}
           </p>
         </div>
       </CanvaGlassPanel>
 
       {/* Bulletins log */}
-      <div className="flex-1 flex flex-col">
-        <h3 className="text-zinc-500 text-[10px] font-black uppercase tracking-widest mb-2 px-1">
+      <div className="flex-1 flex flex-col min-h-0">
+        <h3 className="text-zinc-400 text-xs md:text-sm font-black uppercase tracking-widest mb-2.5 px-1">
           RELIABILITY SAFETY FEED (PULSEPOINT-STYLE)
         </h3>
-        <div className="flex-1 bg-zinc-900/60 border border-zinc-850/80 rounded-lg p-3 max-h-80 overflow-y-auto flex flex-col gap-2 font-mono text-xs">
+        <div className="flex-1 bg-zinc-950 border-2 border-zinc-900 rounded-xl p-4 overflow-y-auto flex flex-col gap-3 font-mono text-sm md:text-base">
           {bulletins.map((bulletin, idx) => (
-            <div key={idx} className="border-b border-zinc-900/80 pb-2 text-zinc-400 leading-relaxed last:border-b-0">
-              <span className="text-zinc-600 text-[9px] block mb-0.5">
+            <div key={idx} className="border-b border-zinc-900 pb-3 text-zinc-300 leading-relaxed last:border-b-0">
+              <span className="text-zinc-500 text-xs font-bold block mb-1">
                 [{new Date().toLocaleTimeString()}]
               </span>
-              {bulletin}
+              <span className="font-semibold">{bulletin}</span>
             </div>
           ))}
         </div>

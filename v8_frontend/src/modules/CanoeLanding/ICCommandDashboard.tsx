@@ -114,45 +114,45 @@ export const ICCommandDashboard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col p-4 select-none font-sans gap-4">
+    <div className="min-h-screen bg-black text-zinc-100 flex flex-col p-5 select-none font-sans gap-5">
       {/* IC Tactical Header */}
-      <div className="flex items-center justify-between border-b border-zinc-900 pb-3">
-        <div className="flex items-center gap-2">
-          <Shield className="h-6 w-6 text-amber-500 animate-pulse" />
+      <div className="flex flex-col md:flex-row md:items-center justify-between border-b-2 border-zinc-900 pb-4 gap-3">
+        <div className="flex items-center gap-3">
+          <Shield className="h-8 w-8 text-amber-500 animate-pulse" />
           <div>
-            <h1 className="text-sm font-black uppercase tracking-widest text-zinc-100">
+            <h1 className="text-base md:text-xl font-black uppercase tracking-widest text-zinc-100">
               CASCADIAEM CANOE COMMAND COCKPIT - TIER III
             </h1>
-            <p className="text-[10px] text-zinc-500 font-extrabold uppercase tracking-wider mt-0.5">
+            <p className="text-xs text-zinc-400 font-extrabold uppercase tracking-wider mt-0.5">
               GETAC K120 / TABLET PORTABLE MODULE
             </p>
           </div>
         </div>
-        <div className="flex gap-2">
-          <CanvaButton onClick={() => triggerGlobalBroadcast('STANDDOWN - ALL CANOES SEEK SHELTER IMMEDIATELY', 'red')} variant="danger" className="py-1 px-3 text-[10px] bg-red-950 text-red-200">
+        <div className="flex gap-3">
+          <CanvaButton onClick={() => triggerGlobalBroadcast('STANDDOWN - ALL CANOES SEEK SHELTER IMMEDIATELY', 'red')} variant="danger" className="py-2.5 px-4 text-xs bg-red-950/80 border-2 border-red-500 text-red-100 font-black tracking-widest rounded-xl transition-all active:scale-95">
             🚨 FORCE GLOBAL SHELTER STAND-DOWN
           </CanvaButton>
-          <CanvaButton onClick={() => triggerGlobalBroadcast('Weather conditions clear. Resume normal safety operations.', 'none')} className="py-1 px-3 text-[10px] border-zinc-800 text-zinc-300">
+          <CanvaButton onClick={() => triggerGlobalBroadcast('Weather conditions clear. Resume normal safety operations.', 'none')} className="py-2.5 px-4 text-xs border-2 border-zinc-800 bg-zinc-950 text-zinc-300 font-black tracking-widest rounded-xl transition-all active:scale-95">
             🟢 CLEAR GLOBAL ALERTS
           </CanvaButton>
         </div>
       </div>
 
       {/* Multi-Column Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 flex-1">
         
         {/* COLUMN 1: Broadcast & Call sheets */}
-        <div className="flex flex-col gap-4">
-          <CanvaGlassPanel highlight="none" bannerText="⚡ CENTRAL EMERGENCY BROADCAST CONSOLE" className="p-4">
-            <label className="text-[9px] font-black uppercase tracking-wider text-zinc-500 block mb-1">
+        <div className="flex flex-col gap-5">
+          <CanvaGlassPanel highlight="none" bannerText="⚡ CENTRAL EMERGENCY BROADCAST CONSOLE" className="p-5 border-2 rounded-2xl">
+            <label className="text-xs font-black uppercase tracking-wider text-zinc-400 block mb-2">
               Broadcast Message
             </label>
             <div className="flex gap-2">
-              <CanvaInput
+              <input
                 placeholder="Alert text to flash on participant screens"
                 value={alertMsg}
                 onChange={(e) => setAlertMsg(e.target.value)}
-                className="text-xs bg-zinc-950 border-zinc-850 flex-1"
+                className="text-base font-bold bg-black border-2 border-zinc-900 p-3 rounded-xl flex-1 focus:border-amber-500 focus:outline-none text-white placeholder-zinc-700"
               />
               <CanvaButton
                 onClick={() => {
@@ -161,32 +161,32 @@ export const ICCommandDashboard: React.FC = () => {
                     setAlertMsg('');
                   }
                 }}
-                className="bg-amber-600 hover:bg-amber-500 text-zinc-950 font-black text-xs px-4"
+                className="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-black text-sm px-5 rounded-xl transition-all active:scale-95"
               >
                 Send
               </CanvaButton>
             </div>
             
             {/* Presets */}
-            <div className="grid grid-cols-2 gap-1.5 mt-3">
-              <button onClick={() => triggerGlobalBroadcast('Lightning detected within 5 miles. Remain alert.', 'yellow')} className="p-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 font-bold text-[9px] uppercase tracking-wide rounded">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
+              <button onClick={() => triggerGlobalBroadcast('Lightning detected within 5 miles. Remain alert.', 'yellow')} className="p-3 bg-zinc-950 hover:bg-zinc-900 border-2 border-zinc-900 hover:border-amber-500 text-zinc-200 font-black text-xs uppercase tracking-wider rounded-xl transition-all">
                 ⚡ Lightning Alert
               </button>
-              <button onClick={() => triggerGlobalBroadcast('Rough sea states reported. Double-escorts active.', 'yellow')} className="p-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 font-bold text-[9px] uppercase tracking-wide rounded">
+              <button onClick={() => triggerGlobalBroadcast('Rough sea states reported. Double-escorts active.', 'yellow')} className="p-3 bg-zinc-950 hover:bg-zinc-900 border-2 border-zinc-900 hover:border-amber-500 text-zinc-200 font-black text-xs uppercase tracking-wider rounded-xl transition-all">
                 🌊 Rough Seas Alert
               </button>
             </div>
           </CanvaGlassPanel>
 
           {/* External Agency Checklist */}
-          <CanvaGlassPanel highlight="none" bannerText="📞 EXTERNAL COORDINATION CONTACT SHEET" className="p-4 flex-1">
-            <div className="flex flex-col gap-2 font-mono text-xs text-zinc-400">
+          <CanvaGlassPanel highlight="none" bannerText="📞 EXTERNAL COORDINATION CONTACT SHEET" className="p-5 flex-1 border-2 rounded-2xl">
+            <div className="flex flex-col gap-3 font-mono text-sm text-zinc-400">
               {[
                 { name: 'Coast Guard Sector Puget Sound', channel: 'VHF Ch 16 / 206-217-6001' },
                 { name: 'Seattle Fire Station 5 Dispatch', channel: 'VHF Ch 14 / 206-386-1400' },
                 { name: 'King County Harbor Patrol', channel: 'VHF Ch 16 / 206-296-3333' }
               ].map((agency, i) => (
-                <label key={i} className="flex items-start gap-2.5 p-2 bg-zinc-950/40 border border-zinc-850/60 rounded cursor-pointer select-none">
+                <label key={i} className="flex items-center gap-3.5 p-3 bg-zinc-950 border-2 border-zinc-900 rounded-xl cursor-pointer select-none hover:border-zinc-800 transition-colors">
                   <input
                     type="checkbox"
                     checked={!!agencyNotified[agency.name]}
@@ -196,11 +196,11 @@ export const ICCommandDashboard: React.FC = () => {
                         playTacticalAlert('single_beep');
                       }
                     }}
-                    className="h-4 w-4 mt-0.5 accent-amber-500"
+                    className="h-6 w-6 accent-amber-500 rounded border-2 border-zinc-700 cursor-pointer min-w-[24px]"
                   />
                   <div>
-                    <span className="text-zinc-200 font-bold text-xs block">{agency.name}</span>
-                    <span className="text-zinc-500 text-[10px] block mt-0.5">{agency.channel}</span>
+                    <span className="text-zinc-200 font-black text-xs md:text-sm block">{agency.name}</span>
+                    <span className="text-zinc-500 text-[11px] block mt-0.5">{agency.channel}</span>
                   </div>
                 </label>
               ))}
@@ -210,38 +210,38 @@ export const ICCommandDashboard: React.FC = () => {
 
         {/* COLUMN 2: Responder Matrix (Staging & Fields) */}
         <div className="flex flex-col">
-          <CanvaGlassPanel highlight="none" bannerText="🏥 DISPATCHABLE ACTIVE FIELD UNITS (TIER II)" className="p-4 flex-1 flex flex-col">
-            <div className="flex-1 bg-zinc-900/40 border border-zinc-850/60 rounded-lg p-2 overflow-y-auto max-h-[400px] flex flex-col gap-2">
+          <CanvaGlassPanel highlight="none" bannerText="🏥 DISPATCHABLE ACTIVE FIELD UNITS (TIER II)" className="p-5 flex-1 flex flex-col border-2 rounded-2xl">
+            <div className="flex-1 bg-zinc-950 border-2 border-zinc-900 rounded-xl p-3 overflow-y-auto max-h-[500px] flex flex-col gap-3">
               {responders.length === 0 ? (
-                <p className="text-zinc-600 text-xs text-center font-mono py-6">No field responders connected yet. Place beach QR signs to check-in units.</p>
+                <p className="text-zinc-600 text-xs md:text-sm text-center font-mono py-12 uppercase">No field responders connected yet. Place beach QR signs to check-in units.</p>
               ) : (
                 responders.map(resp => {
-                  let statusColor = 'text-zinc-400 bg-zinc-950 border-zinc-850';
-                  if (resp.status === 'ACKNOWLEDGED') statusColor = 'text-amber-400 bg-amber-950/20 border-amber-800/60';
-                  else if (resp.status === 'PATIENT_CONTACT') statusColor = 'text-sky-400 bg-sky-950/20 border-sky-800/60';
+                  let statusColor = 'text-zinc-300 bg-black border-zinc-900';
+                  if (resp.status === 'ACKNOWLEDGED') statusColor = 'text-amber-400 bg-amber-950/20 border-amber-800';
+                  else if (resp.status === 'PATIENT_CONTACT') statusColor = 'text-sky-400 bg-sky-950/20 border-sky-800';
 
                   return (
-                    <div key={resp.id} className={`p-3 rounded-lg border flex flex-col justify-between ${statusColor}`}>
+                    <div key={resp.id} className={`p-4 rounded-xl border-2 flex flex-col justify-between gap-3 ${statusColor}`}>
                       <div className="flex justify-between items-start">
                         <div>
-                          <span className="font-extrabold text-xs uppercase text-zinc-100">{resp.name}</span>
-                          <span className="text-[10px] text-zinc-500 block">📞 {resp.phone}</span>
+                          <span className="font-black text-sm md:text-base uppercase text-zinc-100 block">{resp.name}</span>
+                          <span className="text-xs text-zinc-500 block font-mono mt-0.5">📞 {resp.phone}</span>
                         </div>
-                        <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded border border-zinc-800 bg-zinc-950/80">
+                        <span className="text-[10px] font-black uppercase px-2 py-1 rounded border border-zinc-800 bg-zinc-950">
                           {resp.status}
                         </span>
                       </div>
                       
                       {resp.notes && (
-                        <div className="mt-2 bg-zinc-950/60 p-1.5 rounded text-[10px] font-mono text-zinc-300 border border-zinc-900">
-                          <strong>Log Note:</strong> {resp.notes}
+                        <div className="bg-black p-3 rounded-lg text-xs font-mono text-zinc-300 border border-zinc-900 leading-relaxed">
+                          <strong className="text-amber-500">Log Note:</strong> {resp.notes}
                         </div>
                       )}
 
                       {/* Dropdown to manually dispatch to any active incident */}
                       {resp.status === 'STANDBY' && incidents.length > 0 && (
-                        <div className="mt-2 flex items-center gap-1.5">
-                          <span className="text-[9px] font-black uppercase text-zinc-500">Dispatch:</span>
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="text-xs font-black uppercase text-zinc-400">Dispatch:</span>
                           <select
                             onChange={(e) => {
                               if (e.target.value) {
@@ -249,7 +249,7 @@ export const ICCommandDashboard: React.FC = () => {
                                 e.target.value = ''; // Reset dropdown
                               }
                             }}
-                            className="bg-zinc-950 text-zinc-200 border border-zinc-800 p-1 rounded text-[10px] flex-1 focus:outline-none"
+                            className="bg-black text-zinc-200 border-2 border-zinc-900 p-2 rounded-lg text-xs flex-1 focus:outline-none focus:border-amber-500 font-bold"
                           >
                             <option value="">Select Incident...</option>
                             {incidents.map(inc => (
@@ -267,23 +267,23 @@ export const ICCommandDashboard: React.FC = () => {
         </div>
 
         {/* COLUMN 3: Incidents Dispatch Deck */}
-        <div className="flex flex-col gap-4">
-          <CanvaGlassPanel highlight="none" bannerText="➕ DECLARE MEDICAL / SAFETY EMERGENCY" className="p-4">
-            <form onSubmit={createIncident} className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-5">
+          <CanvaGlassPanel highlight="none" bannerText="➕ DECLARE MEDICAL / SAFETY EMERGENCY" className="p-5 border-2 rounded-2xl">
+            <form onSubmit={createIncident} className="flex flex-col gap-4">
               <div>
-                <label className="text-[9px] font-black uppercase tracking-wider text-zinc-500 block mb-1">
+                <label className="text-xs font-black uppercase tracking-wider text-zinc-400 block mb-1.5">
                   Incident Title / Location
                 </label>
-                <CanvaInput
+                <input
                   required
                   placeholder="Medical Call: Landing Zone B"
                   value={incTitle}
                   onChange={(e) => setIncTitle(e.target.value)}
-                  className="text-xs bg-zinc-950 border-zinc-850 w-full"
+                  className="w-full text-base font-bold p-3 bg-black border-2 border-zinc-900 focus:border-red-500 focus:outline-none rounded-xl text-white placeholder-zinc-700"
                 />
               </div>
               <div>
-                <label className="text-[9px] font-black uppercase tracking-wider text-zinc-500 block mb-1">
+                <label className="text-xs font-black uppercase tracking-wider text-zinc-400 block mb-1.5">
                   Incident Narrative details
                 </label>
                 <textarea
@@ -291,39 +291,39 @@ export const ICCommandDashboard: React.FC = () => {
                   value={incDesc}
                   onChange={(e) => setIncDesc(e.target.value)}
                   rows={2}
-                  className="bg-zinc-950 border border-zinc-850 text-zinc-100 rounded-lg p-2 text-xs w-full focus:outline-none"
+                  className="w-full text-base font-semibold p-3 bg-black border-2 border-zinc-900 focus:border-red-500 focus:outline-none rounded-xl text-white placeholder-zinc-700"
                 />
               </div>
-              <CanvaButton type="submit" variant="primary" className="py-2 bg-red-950/40 border border-red-800 hover:bg-red-900 hover:text-white text-red-200 text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 rounded-lg">
-                <Plus className="h-4 w-4" /> Declare & Dispatch Alert
+              <CanvaButton type="submit" variant="primary" className="py-4 bg-red-950/40 border-2 border-red-500 hover:bg-red-900/60 hover:text-white text-red-200 text-sm font-black uppercase tracking-widest flex items-center justify-center gap-2 rounded-xl transition-all active:scale-95 shadow-md">
+                <Plus className="h-5 w-5" /> Declare & Dispatch Alert
               </CanvaButton>
             </form>
           </CanvaGlassPanel>
 
           {/* Incidents Board */}
-          <div className="flex-1 bg-zinc-900/60 border border-zinc-850/80 rounded-lg p-3 overflow-y-auto max-h-[300px] flex flex-col gap-2">
-            <span className="text-zinc-500 text-[10px] font-black uppercase tracking-widest px-1 block mb-1">
+          <div className="flex-1 bg-zinc-950 border-2 border-zinc-900 rounded-xl p-4 overflow-y-auto max-h-[400px] flex flex-col gap-3">
+            <span className="text-zinc-400 text-xs font-black uppercase tracking-widest px-1 block">
               ACTIVE FIELD INCIDENTS
             </span>
             {incidents.length === 0 ? (
-              <p className="text-zinc-600 text-xs text-center font-mono py-8 uppercase">No active incidents declared.</p>
+              <p className="text-zinc-600 text-xs md:text-sm text-center font-mono py-12 uppercase">No active incidents declared.</p>
             ) : (
               incidents.map(inc => (
-                <div key={inc.id} className="p-3 bg-red-950/15 border border-red-900/40 rounded-lg flex flex-col justify-between gap-1">
+                <div key={inc.id} className="p-4 bg-red-950/20 border-2 border-red-900/60 rounded-xl flex flex-col justify-between gap-2 shadow-md">
                   <div className="flex justify-between items-start">
-                    <span className="text-red-400 font-extrabold text-xs uppercase">{inc.title}</span>
-                    <button onClick={() => deleteIncident(inc.id)} className="text-zinc-600 hover:text-red-400 transition-colors">
-                      <Trash2 className="h-3.5 w-3.5" />
+                    <span className="text-red-400 font-black text-sm md:text-base uppercase">{inc.title}</span>
+                    <button onClick={() => deleteIncident(inc.id)} className="text-zinc-500 hover:text-red-400 transition-colors p-1">
+                      <Trash2 className="h-4.5 w-4.5" />
                     </button>
                   </div>
-                  <p className="text-zinc-300 text-[10px] font-mono leading-relaxed">{inc.description}</p>
+                  <p className="text-zinc-300 text-xs md:text-sm font-mono leading-relaxed bg-black/40 border border-zinc-900/80 p-2 rounded-lg">{inc.description}</p>
                   
                   {/* Assigned Responder count */}
-                  <div className="mt-2 pt-1.5 border-t border-red-900/20 flex justify-between items-center text-[10px] text-zinc-400">
-                    <span className="flex items-center gap-1">
-                      <Users className="h-3 w-3" /> Responders: {inc.assignedResponders.length}
+                  <div className="mt-1 pt-2 border-t border-red-900/20 flex justify-between items-center text-xs text-zinc-400">
+                    <span className="flex items-center gap-1 font-bold">
+                      <Users className="h-4.5 w-4.5 text-zinc-500" /> Responders: {inc.assignedResponders.length}
                     </span>
-                    <span className="text-[9px] text-zinc-600">[{inc.timestamp}]</span>
+                    <span className="text-[10px] text-zinc-500 font-mono">[{inc.timestamp}]</span>
                   </div>
                 </div>
               ))
@@ -335,3 +335,4 @@ export const ICCommandDashboard: React.FC = () => {
     </div>
   );
 };
+

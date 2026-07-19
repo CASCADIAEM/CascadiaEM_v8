@@ -279,6 +279,8 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
   }
 ];
 
+import CanoeLandingContainer from './modules/CanoeLanding/CanoeLandingContainer';
+
 // ---------------------------------------------------------
 // APP COMPONENT
 // ---------------------------------------------------------
@@ -287,6 +289,7 @@ const App: React.FC = () => {
   // Onboarding & Device States
   const [onboarded, setOnboarded] = useState(false);
   const [deviceProfile, setDeviceProfile] = useState<'PHONE' | 'TABLET' | 'DESKTOP' | 'EOC'>('DESKTOP');
+  const [isCanoePortalOnly, setIsCanoePortalOnly] = useState(false);
   
   // Active/Configured Modules
   const [activeModuleIds, setActiveModuleIds] = useState<string[]>([
@@ -296,6 +299,30 @@ const App: React.FC = () => {
   const [systemTime, setSystemTime] = useState<string>('');
 
   useEffect(() => {
+    // 1. Direct safety portal bypass check
+    const params = new URLSearchParams(window.location.search);
+    const isCanoeQuery = params.get('module') === 'canoe-landing';
+    const isCanoeRoleQuery = params.get('role') === 'participant' || params.get('role') === 'responder';
+    const isEocOverride = params.get('eoc') === 'true' || params.get('ic') === 'true';
+    const savedProfileRaw = localStorage.getItem('cem_canoe_user_profile');
+    
+    let isSavedCanoePortal = false;
+    if (savedProfileRaw && !isEocOverride) {
+      try {
+        const parsed = JSON.parse(savedProfileRaw);
+        // Only Participant (tier_1) and Responder (tier_2) bypass the main EOC app.
+        // Command/IC (tier_3) stays in the main Command Cockpit/EOC system.
+        if (parsed.tier === 'tier_1' || parsed.tier === 'tier_2') {
+          isSavedCanoePortal = true;
+        }
+      } catch {}
+    }
+
+    if ((isCanoeQuery || isCanoeRoleQuery || isSavedCanoePortal) && !isEocOverride) {
+      setIsCanoePortalOnly(true);
+    }
+
+    // 2. System time clock loop
     const updateTime = () => {
       const now = new Date();
       const year = now.getFullYear();
@@ -567,6 +594,14 @@ const App: React.FC = () => {
   };
 
   const activeRegistry = EOC_MODULE_REGISTRY.filter(m => activeModuleIds.includes(m.id));
+
+  if (isCanoePortalOnly) {
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center text-zinc-400 font-mono font-black uppercase text-sm tracking-wider">Initializing Safety Portal...</div>}>
+        <CanoeLandingContainer />
+      </Suspense>
+    );
+  }
 
   return (
     <div className="flex h-screen bg-[#050505] overflow-hidden text-[#f4f4f5] font-sans selection:bg-amber-500 selection:text-black">
