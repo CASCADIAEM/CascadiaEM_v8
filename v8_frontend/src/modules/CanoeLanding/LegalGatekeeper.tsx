@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CanvaGlassPanel, CanvaButton, CanvaInput } from '../../components/DesignSandbox';
+import { CanvaGlassPanel, CanvaButton } from '../../components/DesignSandbox';
 import { playTacticalAlert } from './CanoeDataBus';
 
 interface LegalGatekeeperProps {

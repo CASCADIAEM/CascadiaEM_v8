@@ -114,9 +114,9 @@ export const EOC_MODULE_REGISTRY: ModuleDefinition[] = [
   },
   {
     id: 'canoe-landing',
-    name: 'Canoe Safety Suite',
+    name: 'Mission Manager',
     icon: Anchor,
-    description: 'Real-time Canoe Landing Safety Suite with 3-tier mobile portals, legal gating, and audio alerts.',
+    description: 'Active Mission Manager with multi-tier responder portals, unit assignments, and communication matrix.',
     component: React.lazy(() => import('../modules/CanoeLanding/CanoeLandingContainer')),
     category: 'tactical'
   }

@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from 'firebase/firestore';
-import { getAuth, signInAnonymously } from 'firebase/auth';
+import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager, connectFirestoreEmulator } from 'firebase/firestore';
+import { getAuth, signInAnonymously, connectAuthEmulator } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCN_deLJNlLlv6-7J1P5LohK7dSgtInQgU",
@@ -22,6 +22,22 @@ export const db = initializeFirestore(app, {
 });
 
 export const auth = getAuth(app);
+
+// Strict local emulator routing (with dynamic network IP binding for mobile/tablet Wi-Fi testing)
+const isLocal = typeof window !== 'undefined' && (
+  window.location.hostname === 'localhost' ||
+  window.location.hostname === '127.0.0.1' ||
+  window.location.hostname.startsWith('192.168.') ||
+  window.location.hostname.startsWith('10.') ||
+  window.location.hostname.startsWith('172.')
+);
+
+if (isLocal) {
+  const host = window.location.hostname;
+  console.log(`🔌 [FIREBASE EMULATOR BINDING]: Directing database and authentication connections strictly to local emulators at ${host}`);
+  connectFirestoreEmulator(db, host, 8080);
+  connectAuthEmulator(auth, `http://${host}:9099`, { disableWarnings: true });
+}
 
 // Trigger immediate secure anonymous sign-in to satisfy Firestore security rules
 signInAnonymously(auth)

@@ -108,7 +108,10 @@ export const ParticipantPortal: React.FC<ParticipantPortalProps> = ({ name, phon
         {/* At-a-glance Registration display */}
         <div className="bg-zinc-950 border-2 border-zinc-900 p-4 rounded-xl flex items-center justify-between">
           <span className="text-zinc-400 text-xs md:text-sm font-black uppercase tracking-wider">ON-BOARD CALL SIGN</span>
-          <span className="text-amber-400 font-black text-lg md:text-2xl uppercase tracking-widest font-mono">{name}</span>
+          <div className="text-right flex flex-col items-end">
+            <span className="text-amber-400 font-black text-lg md:text-2xl uppercase tracking-widest font-mono">{name}</span>
+            {phone && <span className="text-[10px] text-zinc-500 font-mono">📞 {phone}</span>}
+          </div>
         </div>
       </div>
 

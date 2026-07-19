@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CanvaGlassPanel, CanvaButton, CanvaTextarea } from '../../components/DesignSandbox';
+import { CanvaGlassPanel, CanvaButton } from '../../components/DesignSandbox';
 import { 
   playTacticalAlert, 
   CANOE_STORAGE_KEYS, 

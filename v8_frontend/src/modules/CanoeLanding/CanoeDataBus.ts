@@ -15,6 +15,7 @@ export interface ResponderUnit {
   role: 'medical' | 'security' | 'rescue_boat';
   status: 'STANDBY' | 'ACKNOWLEDGED' | 'PATIENT_CONTACT' | 'CLEARED';
   activeIncidentId?: string;
+  phone?: string;
   notes?: string;
 }
 

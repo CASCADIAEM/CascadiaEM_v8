@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CanvaGlassPanel, CanvaButton, CanvaInput } from '../../components/DesignSandbox';
+import { CanvaGlassPanel, CanvaButton } from '../../components/DesignSandbox';
 import { 
   playTacticalAlert, 
   CANOE_STORAGE_KEYS, 
@@ -9,7 +9,7 @@ import {
   type Incident, 
   type GlobalAlert 
 } from './CanoeDataBus';
-import { Shield, Bell, CloudLightning, PhoneCall, Plus, Trash2, Users } from 'lucide-react';
+import { Shield, Plus, Trash2, Users } from 'lucide-react';
 
 export const ICCommandDashboard: React.FC = () => {
   const [responders, setResponders] = useState<ResponderUnit[]>([]);
@@ -121,15 +121,12 @@ export const ICCommandDashboard: React.FC = () => {
           <Shield className="h-8 w-8 text-amber-500 animate-pulse" />
           <div>
             <h1 className="text-base md:text-xl font-black uppercase tracking-widest text-zinc-100">
-              CASCADIAEM CANOE COMMAND COCKPIT - TIER III
+              MISSION MANAGER
             </h1>
-            <p className="text-xs text-zinc-400 font-extrabold uppercase tracking-wider mt-0.5">
-              GETAC K120 / TABLET PORTABLE MODULE
-            </p>
           </div>
         </div>
         <div className="flex gap-3">
-          <CanvaButton onClick={() => triggerGlobalBroadcast('STANDDOWN - ALL CANOES SEEK SHELTER IMMEDIATELY', 'red')} variant="danger" className="py-2.5 px-4 text-xs bg-red-950/80 border-2 border-red-500 text-red-100 font-black tracking-widest rounded-xl transition-all active:scale-95">
+          <CanvaButton onClick={() => triggerGlobalBroadcast('STANDDOWN - ALL UNITS SEEK SHELTER IMMEDIATELY', 'red')} variant="danger" className="py-2.5 px-4 text-xs bg-red-950/80 border-2 border-red-500 text-red-100 font-black tracking-widest rounded-xl transition-all active:scale-95">
             🚨 FORCE GLOBAL SHELTER STAND-DOWN
           </CanvaButton>
           <CanvaButton onClick={() => triggerGlobalBroadcast('Weather conditions clear. Resume normal safety operations.', 'none')} className="py-2.5 px-4 text-xs border-2 border-zinc-800 bg-zinc-950 text-zinc-300 font-black tracking-widest rounded-xl transition-all active:scale-95">
