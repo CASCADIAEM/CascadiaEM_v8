@@ -3,6 +3,7 @@ import { LegalGatekeeper } from './LegalGatekeeper';
 import { ParticipantPortal } from './ParticipantPortal';
 import { ResponderPortal } from './ResponderPortal';
 import { ICCommandDashboard } from './ICCommandDashboard';
+import { startCanoeSync } from './CanoeDataBus';
 
 export const CanoeLandingContainer: React.FC = () => {
   const [ulaAccepted, setUlaAccepted] = useState(false);
@@ -11,6 +12,8 @@ export const CanoeLandingContainer: React.FC = () => {
     name: string;
     phone: string;
     roleType: string;
+    currentBranch?: 'Branch I (Alki Beach)' | 'Branch II (Reservation)' | 'Transit';
+    resourceStatus?: 'ASSIGNED' | 'IN_TRANSIT' | 'STAGING';
   } | null>(null);
 
   // Load acceptance state on mount
@@ -46,7 +49,21 @@ export const CanoeLandingContainer: React.FC = () => {
     }
   }, []);
 
-  const handleAcceptULA = (selectedTier: 'tier_1' | 'tier_2', name: string, phone: string, roleType: string) => {
+  // Manage background database listeners: active strictly only when component is mounted
+  useEffect(() => {
+    const stopSync = startCanoeSync();
+    return () => {
+      stopSync();
+    };
+  }, []);
+
+  const handleAcceptULA = (
+    selectedTier: 'tier_1' | 'tier_2',
+    name: string,
+    phone: string,
+    roleType: string,
+    branch: 'Branch I (Alki Beach)' | 'Branch II (Reservation)' | 'Transit'
+  ) => {
     // Check if name has a secret keyword for IC, or if they check in with an 'IC' tag
     let finalTier: 'tier_1' | 'tier_2' | 'tier_3' = selectedTier;
     
@@ -54,7 +71,14 @@ export const CanoeLandingContainer: React.FC = () => {
       finalTier = 'tier_3';
     }
 
-    const profile = { tier: finalTier, name, phone, roleType };
+    const profile = { 
+      tier: finalTier, 
+      name, 
+      phone, 
+      roleType,
+      currentBranch: branch,
+      resourceStatus: (finalTier === 'tier_2' ? 'STAGING' : 'ASSIGNED') as any
+    };
     localStorage.setItem('cem_canoe_ula_accepted', 'true');
     localStorage.setItem('cem_canoe_user_profile', JSON.stringify(profile));
     
@@ -84,6 +108,8 @@ export const CanoeLandingContainer: React.FC = () => {
           name={userProfile.name} 
           phone={userProfile.phone} 
           roleType={userProfile.roleType} 
+          initialBranch={userProfile.currentBranch}
+          initialStatus={userProfile.resourceStatus}
         />
       )}
       {userProfile.tier === 'tier_1' && (

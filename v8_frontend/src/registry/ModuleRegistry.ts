@@ -26,7 +26,7 @@ export interface ModuleDefinition {
 export const EOC_MODULE_REGISTRY: ModuleDefinition[] = [
   {
     id: 'tactical-teams',
-    name: 'Tactical Teams',
+    name: 'Teams Manager',
     icon: Users,
     description: 'NIMS-compliant unit assembly, staging pool, and active assignments.',
     component: React.lazy(() => import('../modules/TacticalTeams')),
@@ -114,9 +114,9 @@ export const EOC_MODULE_REGISTRY: ModuleDefinition[] = [
   },
   {
     id: 'canoe-landing',
-    name: 'Mission Manager',
+    name: 'Field Alert & Safety Portal',
     icon: Anchor,
-    description: 'Active Mission Manager with multi-tier responder portals, unit assignments, and communication matrix.',
+    description: 'Auxiliary responder portals, real-time field safety alerts, active unit assignments, and multi-branch communication matrix.',
     component: React.lazy(() => import('../modules/CanoeLanding/CanoeLandingContainer')),
     category: 'tactical'
   }

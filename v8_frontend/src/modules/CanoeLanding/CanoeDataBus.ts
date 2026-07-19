@@ -7,7 +7,7 @@
  */
 
 import { db } from '../../services/Firebase';
-import { doc, setDoc, onSnapshot } from 'firebase/firestore';
+import { doc, setDoc, onSnapshot, type Unsubscribe } from 'firebase/firestore';
 
 export interface ResponderUnit {
   id: string;
@@ -17,6 +17,8 @@ export interface ResponderUnit {
   activeIncidentId?: string;
   phone?: string;
   notes?: string;
+  currentBranch?: 'Branch I (Alki Beach)' | 'Branch II (Reservation)' | 'Transit';
+  resourceStatus?: 'ASSIGNED' | 'IN_TRANSIT' | 'STAGING';
 }
 
 export interface Incident {
@@ -99,7 +101,24 @@ export const CANOE_STORAGE_KEYS = {
   ALERT: 'cem_global_alert'
 };
 
+export function isDeepEqual(obj1: any, obj2: any): boolean {
+  if (obj1 === obj2) return true;
+  if (typeof obj1 !== 'object' || obj1 === null || typeof obj2 !== 'object' || obj2 === null) return false;
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+  if (keys1.length !== keys2.length) return false;
+  for (const key of keys1) {
+    if (!keys2.includes(key) || !isDeepEqual(obj1[key], obj2[key])) return false;
+  }
+  return true;
+}
+
 export function broadcastStateChange(key: string, data: any) {
+  const current = fetchStoredState<any>(key, null);
+  if (isDeepEqual(current, data)) {
+    return; // Block execution loop: skip write if already identical
+  }
+
   localStorage.setItem(key, JSON.stringify(data));
   window.dispatchEvent(new CustomEvent('cem_state_sync', { detail: { key, data } }));
 
@@ -127,40 +146,72 @@ export function fetchStoredState<T>(key: string, defaultValue: T): T {
   }
 }
 
-// Setup real-time cross-device listening over Firestore
-try {
-  // Global Alerts Sync
-  onSnapshot(doc(db, 'canoe_landing_system', 'global_alert'), (snapshot) => {
-    if (snapshot.exists()) {
-      const data = snapshot.data();
-      localStorage.setItem(CANOE_STORAGE_KEYS.ALERT, JSON.stringify(data));
-      window.dispatchEvent(new CustomEvent('cem_state_sync', { detail: { key: CANOE_STORAGE_KEYS.ALERT, data } }));
-    }
-  }, (err) => {
-    console.warn('Firestore global_alert sync failed: ', err);
-  });
+let activeUnsubscribes: Unsubscribe[] = [];
 
-  // Responders Pool Sync
-  onSnapshot(doc(db, 'canoe_landing_system', 'responders'), (snapshot) => {
-    if (snapshot.exists()) {
-      const data = snapshot.data().list || [];
-      localStorage.setItem(CANOE_STORAGE_KEYS.RESPONDERS, JSON.stringify(data));
-      window.dispatchEvent(new CustomEvent('cem_state_sync', { detail: { key: CANOE_STORAGE_KEYS.RESPONDERS, data } }));
-    }
-  }, (err) => {
-    console.warn('Firestore responders sync failed: ', err);
-  });
+export function startCanoeSync(onSyncUpdate?: (key: string, data: any) => void) {
+  stopCanoeSync();
 
-  // Incidents Pool Sync
-  onSnapshot(doc(db, 'canoe_landing_system', 'incidents'), (snapshot) => {
-    if (snapshot.exists()) {
-      const data = snapshot.data().list || [];
-      localStorage.setItem(CANOE_STORAGE_KEYS.INCIDENTS, JSON.stringify(data));
-      window.dispatchEvent(new CustomEvent('cem_state_sync', { detail: { key: CANOE_STORAGE_KEYS.INCIDENTS, data } }));
+  try {
+    // Global Alerts Sync
+    const unsubAlert = onSnapshot(doc(db, 'canoe_landing_system', 'global_alert'), (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.data() as any;
+        const local = fetchStoredState<any>(CANOE_STORAGE_KEYS.ALERT, null);
+        if (!isDeepEqual(local, data)) {
+          localStorage.setItem(CANOE_STORAGE_KEYS.ALERT, JSON.stringify(data));
+          window.dispatchEvent(new CustomEvent('cem_state_sync', { detail: { key: CANOE_STORAGE_KEYS.ALERT, data } }));
+          if (onSyncUpdate) onSyncUpdate(CANOE_STORAGE_KEYS.ALERT, data);
+        }
+      }
+    }, (err) => {
+      console.warn('Firestore global_alert sync failed: ', err);
+    });
+
+    // Responders Pool Sync
+    const unsubResponders = onSnapshot(doc(db, 'canoe_landing_system', 'responders'), (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.data()?.list || [];
+        const local = fetchStoredState<any[]>(CANOE_STORAGE_KEYS.RESPONDERS, []);
+        if (!isDeepEqual(local, data)) {
+          localStorage.setItem(CANOE_STORAGE_KEYS.RESPONDERS, JSON.stringify(data));
+          window.dispatchEvent(new CustomEvent('cem_state_sync', { detail: { key: CANOE_STORAGE_KEYS.RESPONDERS, data } }));
+          if (onSyncUpdate) onSyncUpdate(CANOE_STORAGE_KEYS.RESPONDERS, data);
+        }
+      }
+    }, (err) => {
+      console.warn('Firestore responders sync failed: ', err);
+    });
+
+    // Incidents Pool Sync
+    const unsubIncidents = onSnapshot(doc(db, 'canoe_landing_system', 'incidents'), (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.data()?.list || [];
+        const local = fetchStoredState<any[]>(CANOE_STORAGE_KEYS.INCIDENTS, []);
+        if (!isDeepEqual(local, data)) {
+          localStorage.setItem(CANOE_STORAGE_KEYS.INCIDENTS, JSON.stringify(data));
+          window.dispatchEvent(new CustomEvent('cem_state_sync', { detail: { key: CANOE_STORAGE_KEYS.INCIDENTS, data } }));
+          if (onSyncUpdate) onSyncUpdate(CANOE_STORAGE_KEYS.INCIDENTS, data);
+        }
+      }
+    }, (err) => {
+      console.warn('Firestore incidents sync failed: ', err);
+    });
+
+    activeUnsubscribes = [unsubAlert, unsubResponders, unsubIncidents];
+  } catch (err) {
+    console.warn('Firestore subscription failed: ', err);
+  }
+
+  return stopCanoeSync;
+}
+
+export function stopCanoeSync() {
+  activeUnsubscribes.forEach(unsub => {
+    try {
+      unsub();
+    } catch (e) {
+      console.warn('Error unsubscribing: ', e);
     }
-  }, (err) => {
-    console.warn('Firestore incidents sync failed: ', err);
   });
-} catch (err) {
-  console.warn('Firestore subscription failed: ', err);
+  activeUnsubscribes = [];
 }

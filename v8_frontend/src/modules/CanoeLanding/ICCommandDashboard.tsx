@@ -121,7 +121,7 @@ export const ICCommandDashboard: React.FC = () => {
           <Shield className="h-8 w-8 text-amber-500 animate-pulse" />
           <div>
             <h1 className="text-base md:text-xl font-black uppercase tracking-widest text-zinc-100">
-              MISSION MANAGER
+              FIELD ALERT & SAFETY PORTAL
             </h1>
           </div>
         </div>
@@ -227,6 +227,52 @@ export const ICCommandDashboard: React.FC = () => {
                         <span className="text-[10px] font-black uppercase px-2 py-1 rounded border border-zinc-800 bg-zinc-950">
                           {resp.status}
                         </span>
+                      </div>
+
+                      {/* Branch and NIMS Status Selectors */}
+                      <div className="grid grid-cols-2 gap-2 mt-1 border-t border-zinc-900/40 pt-2 pb-1">
+                        <div>
+                          <label className="text-[9px] font-black text-zinc-500 uppercase tracking-wider block mb-0.5">Branch</label>
+                          <select
+                            value={resp.currentBranch || 'Branch I (Alki Beach)'}
+                            onChange={(e) => {
+                              const updatedPool = responders.map(r => {
+                                if (r.id === resp.id) {
+                                  return { ...r, currentBranch: e.target.value as any };
+                                }
+                                return r;
+                              });
+                              broadcastStateChange(CANOE_STORAGE_KEYS.RESPONDERS, updatedPool);
+                              setResponders(updatedPool);
+                            }}
+                            className="bg-black text-zinc-300 border border-zinc-900 p-1.5 rounded text-[10px] w-full focus:outline-none focus:border-amber-500 font-bold"
+                          >
+                            <option value="Branch I (Alki Beach)">Branch I (Alki)</option>
+                            <option value="Branch II (Reservation)">Branch II (Muckleshoot)</option>
+                            <option value="Transit">Transit</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="text-[9px] font-black text-zinc-500 uppercase tracking-wider block mb-0.5">Status (NIMS)</label>
+                          <select
+                            value={resp.resourceStatus || 'STAGING'}
+                            onChange={(e) => {
+                              const updatedPool = responders.map(r => {
+                                if (r.id === resp.id) {
+                                  return { ...r, resourceStatus: e.target.value as any };
+                                }
+                                return r;
+                              });
+                              broadcastStateChange(CANOE_STORAGE_KEYS.RESPONDERS, updatedPool);
+                              setResponders(updatedPool);
+                            }}
+                            className="bg-black text-zinc-300 border border-zinc-900 p-1.5 rounded text-[10px] w-full focus:outline-none focus:border-amber-500 font-bold"
+                          >
+                            <option value="STAGING">🟢 STAGING</option>
+                            <option value="IN_TRANSIT">🟡 IN_TRANSIT</option>
+                            <option value="ASSIGNED">🔵 ASSIGNED</option>
+                          </select>
+                        </div>
                       </div>
                       
                       {resp.notes && (

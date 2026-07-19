@@ -3,7 +3,13 @@ import { CanvaGlassPanel, CanvaButton } from '../../components/DesignSandbox';
 import { playTacticalAlert } from './CanoeDataBus';
 
 interface LegalGatekeeperProps {
-  onAccept: (tier: 'tier_1' | 'tier_2', name: string, phone: string, roleType: string) => void;
+  onAccept: (
+    tier: 'tier_1' | 'tier_2',
+    name: string,
+    phone: string,
+    roleType: string,
+    branch: 'Branch I (Alki Beach)' | 'Branch II (Reservation)' | 'Transit'
+  ) => void;
 }
 
 export const LegalGatekeeper: React.FC<LegalGatekeeperProps> = ({ onAccept }) => {
@@ -12,6 +18,7 @@ export const LegalGatekeeper: React.FC<LegalGatekeeperProps> = ({ onAccept }) =>
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [roleType, setRoleType] = useState('medical'); // medical, security, rescue_boat, general
+  const [branch, setBranch] = useState<'Branch I (Alki Beach)' | 'Branch II (Reservation)' | 'Transit'>('Branch I (Alki Beach)');
   const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -27,7 +34,7 @@ export const LegalGatekeeper: React.FC<LegalGatekeeperProps> = ({ onAccept }) =>
 
     // Play alert sound to confirm Web Audio permissions on interaction
     playTacticalAlert('single_beep');
-    onAccept(tier, name.trim(), phone.trim(), tier === 'tier_2' ? roleType : 'general');
+    onAccept(tier, name.trim(), phone.trim(), tier === 'tier_2' ? roleType : 'general', branch);
   };
 
   return (
@@ -155,6 +162,21 @@ export const LegalGatekeeper: React.FC<LegalGatekeeperProps> = ({ onAccept }) =>
                 </select>
               </div>
             )}
+
+            <div>
+              <label className="text-zinc-400 text-xs font-black uppercase tracking-wider block mb-1.5">
+                Active Operational Branch
+              </label>
+              <select
+                value={branch}
+                onChange={(e) => setBranch(e.target.value as any)}
+                className="bg-black border-2 border-zinc-900 focus:border-amber-500 text-zinc-100 rounded-xl p-4 text-base md:text-lg font-bold w-full focus:outline-none"
+              >
+                <option value="Branch I (Alki Beach)">📍 Branch I (Alki Beach Landing)</option>
+                <option value="Branch II (Reservation)">📍 Branch II (Muckleshoot Reservation)</option>
+                <option value="Transit">🚢 In-Transit</option>
+              </select>
+            </div>
           </div>
 
           {error && <p className="text-red-500 text-xs md:text-sm font-black text-center uppercase tracking-wide">{error}</p>}

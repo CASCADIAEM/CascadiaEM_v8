@@ -58,7 +58,7 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
     children: [
       {
         id: 'mission-setup-folder',
-        name: 'MISSION SETUP',
+        name: 'MISSION MANAGER',
         type: 'folder',
         children: [
           {
@@ -84,6 +84,14 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
             moduleId: 'contact-manager',
             icon: BookOpen,
             description: 'Emergency roster & CSV directory'
+          },
+          {
+            id: 'tactical-teams-node',
+            name: 'TEAMS MANAGER',
+            type: 'module',
+            moduleId: 'tactical-teams',
+            icon: Users,
+            description: 'NIMS unit assembly & staging'
           }
         ]
       }
@@ -119,11 +127,11 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
       },
       {
         id: 'canoe-landing-node',
-        name: 'MISSION MANAGER',
+        name: 'FIELD ALERT & SAFETY PORTAL',
         type: 'module',
         moduleId: 'canoe-landing',
         icon: Anchor,
-        description: 'Active mission safety and communication manager'
+        description: 'Auxiliary field safety and communication portal'
       },
       {
         id: 'operations-folder',
@@ -137,14 +145,6 @@ const SIDEBAR_TREE_NODES: MenuNode[] = [
             moduleId: 'dashboard',
             icon: Activity,
             description: 'Operational summary & statistics'
-          },
-          {
-            id: 'tactical-teams-node',
-            name: 'TACTICAL UNITS',
-            type: 'module',
-            moduleId: 'tactical-teams',
-            icon: Users,
-            description: 'NIMS unit assembly & staging'
           },
           {
             id: 'tactical-matrix-node',

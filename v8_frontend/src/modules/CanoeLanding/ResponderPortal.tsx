@@ -15,14 +15,24 @@ interface ResponderPortalProps {
   name: string;
   phone: string;
   roleType: string;
+  initialBranch?: 'Branch I (Alki Beach)' | 'Branch II (Reservation)' | 'Transit';
+  initialStatus?: 'ASSIGNED' | 'IN_TRANSIT' | 'STAGING';
 }
 
-export const ResponderPortal: React.FC<ResponderPortalProps> = ({ name, phone, roleType }) => {
+export const ResponderPortal: React.FC<ResponderPortalProps> = ({ 
+  name, 
+  phone, 
+  roleType,
+  initialBranch = 'Branch I (Alki Beach)',
+  initialStatus = 'STAGING'
+}) => {
   const [me, setMe] = useState<ResponderUnit>({
     id: phone, // phone double acts as stable ID
     name,
     role: roleType as any,
-    status: 'STANDBY'
+    status: 'STANDBY',
+    currentBranch: initialBranch,
+    resourceStatus: initialStatus
   });
 
   const [activeIncident, setActiveIncident] = useState<Incident | null>(null);
@@ -41,7 +51,9 @@ export const ResponderPortal: React.FC<ResponderPortalProps> = ({ name, phone, r
       updatedMe = { 
         ...pool[existingIdx], 
         name: me.name, 
-        role: me.role 
+        role: me.role,
+        currentBranch: pool[existingIdx].currentBranch || me.currentBranch,
+        resourceStatus: pool[existingIdx].resourceStatus || me.resourceStatus
       };
       pool[existingIdx] = updatedMe;
     } else {
@@ -116,6 +128,20 @@ export const ResponderPortal: React.FC<ResponderPortalProps> = ({ name, phone, r
     }
   };
 
+  const updateMyBranchAndStatus = (
+    newBranch: ResponderUnit['currentBranch'],
+    newResourceStatus: ResponderUnit['resourceStatus']
+  ) => {
+    const latestPool = fetchStoredState<ResponderUnit[]>(CANOE_STORAGE_KEYS.RESPONDERS, []);
+    const idx = latestPool.findIndex(r => r.id === me.id);
+    if (idx >= 0) {
+      if (newBranch) latestPool[idx].currentBranch = newBranch;
+      if (newResourceStatus) latestPool[idx].resourceStatus = newResourceStatus;
+      broadcastStateChange(CANOE_STORAGE_KEYS.RESPONDERS, latestPool);
+      setMe(latestPool[idx]);
+    }
+  };
+
   const handleAcknowledge = () => {
     playTacticalAlert('single_beep');
     updateMyStatus('ACKNOWLEDGED');
@@ -158,6 +184,43 @@ export const ResponderPortal: React.FC<ResponderPortalProps> = ({ name, phone, r
         <div className="bg-zinc-950 border-2 border-zinc-900 p-4 rounded-xl flex items-center justify-between">
           <span className="text-zinc-400 text-xs md:text-sm font-black uppercase tracking-wider">ACTIVE FIELD UNIT</span>
           <span className="text-amber-400 font-black text-lg md:text-2xl uppercase tracking-widest font-mono">{me.name}</span>
+        </div>
+      </div>
+
+      {/* Operational Disposition & Multi-Mission Allocation */}
+      <div className="p-4 border-2 border-zinc-900 rounded-2xl bg-zinc-950/40 backdrop-blur-md">
+        <h3 className="text-xs font-black text-zinc-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+          <Activity className="h-3.5 w-3.5 text-amber-500" /> Operational Disposition & Multi-Mission Allocation
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="text-zinc-500 text-[10px] font-black uppercase tracking-wider block mb-1">
+              Active Operational Branch
+            </label>
+            <select
+              value={me.currentBranch || 'Branch I (Alki Beach)'}
+              onChange={(e) => updateMyBranchAndStatus(e.target.value as any, me.resourceStatus)}
+              className="bg-black border-2 border-zinc-900 focus:border-amber-500 text-zinc-100 rounded-lg p-3 text-xs md:text-sm font-bold w-full focus:outline-none transition-colors"
+            >
+              <option value="Branch I (Alki Beach)">📍 Branch I (Alki Beach Landing)</option>
+              <option value="Branch II (Reservation)">📍 Branch II (Muckleshoot Reservation)</option>
+              <option value="Transit">🚢 In-Transit</option>
+            </select>
+          </div>
+          <div>
+            <label className="text-zinc-500 text-[10px] font-black uppercase tracking-wider block mb-1">
+              Operational Status (NIMS)
+            </label>
+            <select
+              value={me.resourceStatus || 'STAGING'}
+              onChange={(e) => updateMyBranchAndStatus(me.currentBranch, e.target.value as any)}
+              className="bg-black border-2 border-zinc-900 focus:border-amber-500 text-zinc-100 rounded-lg p-3 text-xs md:text-sm font-bold w-full focus:outline-none transition-colors"
+            >
+              <option value="STAGING">🟢 STAGING (Ready / On Standby)</option>
+              <option value="IN_TRANSIT">🟡 IN_TRANSIT (Mobilizing / En Route)</option>
+              <option value="ASSIGNED">🔵 ASSIGNED (Engaged in Mission / Tasked)</option>
+            </select>
+          </div>
         </div>
       </div>
 
